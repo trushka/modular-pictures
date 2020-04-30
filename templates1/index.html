@@ -740,11 +740,12 @@
                                         <tr>
                                             <td></td>
                                             <td class="canv_cel">
-                                                <table style="width: 100%; height: 400px">
-                                                    <tr style="background: url(../img/photo1.jpg) 0 0/100% auto">
-                                                        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-                                                    </tr>
-                                                </table>
+                                                <svg >
+                                                    <pattern id="image" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                                                        <image preserveAspectRatio="xMidYMid slice" xlink:href="../img/photo1.jpg" width="100%" height="100%"/>
+                                                    </pattern>
+                                                    <g></g>
+                                                </svg>
                                             </td><td class="controls">
                                                 <button>⬚</button>
                                                 <button>↶</button>
@@ -1437,6 +1438,9 @@
     <script src="../js/slick.min.js"></script>
     <script src="../js/script.min.js"></script>
     <script src="../js/modular-pictures.js"></script>
+
+    <script src="../js/templates.js"></script>
+    <script src="../js/modular-generator.js"></script>
 </body>
 
 </html>
