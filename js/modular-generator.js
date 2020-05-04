@@ -79,11 +79,18 @@
 		[8]---3---[7]
 
 		*/
-		for (var i = 0; i < $('rect', this).length; i++) {
-			if (e.target==$('rect', this)[i]) var which=i;
-		}
-
-		function move(e){
+		var move={};
+		this.querySelectorAll('rect').forEach(function(el,i){
+			if (e.target!=el) return;
+			move.l = /0|8|4|5/.test(i);
+			move.t = /0|5|1|6/.test(i);
+			move.r = /6|2|7/.test(i);
+			move.b = /8|3|7/.test(i);
+			move.w=i && -move.l || +move.r;
+			move.h=i && -move.t || +move.b;
+		});
+		console.log(move);
+		function change(e){
 			//
 			var touch=e;
 			if (e.type=='touchmove') {
@@ -97,35 +104,30 @@
 			}
 			var dx=touch.pageX-x0;
 			var dy=touch.pageY-y0;
-			var x,y,w,h,max;
+			var x=pos0.x,
+				y=pos0.y,
+				w=pos0.width,
+				h=pos0.height;
 			var css={};
 
-			if (which==0 || which==4 || which==5 || which==8) {
-				x=Math.max(pos0.x+dx, 0);
-				max=which? pos0.x+pos0.width-minSize : bBox.width-pos0.width;
-				css['--x']=Math.min(max, x)+'px';
-			}
-			if (which<2 || which==5 || which==6) {
-				y=Math.max(pos0.y+dy, 0);
-				max=which? pos0.y+pos0.height-minSize : bBox.height-pos0.height;
-				css['--y']=Math.min(max, y)+'px';
-			}
-			if (which==2 || which==6 || which==7) {
-				w=Math.max(pos0.width+dx, minSize);
-				css['--w']=Math.min(bBox.width-pos0.x, w)+'px';
-			}
-			if (which==3 || which==8 || which==7) {
-				h=Math.max(pos0.height+dy, minSize);
-				css['--h']=Math.min(bBox.height-pos0.y, h)+'px';
-			}
+			dx=Math.max(dx, move.l?-x:-w+minSize);
+			dy=Math.max(dy, move.t?-y:-h+minSize);
+
+			dx=Math.min(dx, move.w<0?w-minSize:bBox.width-x-w);
+			dy=Math.min(dy, move.h<0?h-minSize:bBox.height-y-h);
+
+			if (move.l) css['--x']=x+dx+'px';
+			if (move.t) css['--y']=y+dy+'px';
+			css['--w']=w+dx*move.w+'px';
+			css['--h']=h+dy*move.h+'px';
 
 			$(el).css(css);
 			//return false
 		}
 
-		$(window).on(touch?'touchmove':'mousemove', move)
+		$(window).on(touch?'touchmove':'mousemove', change)
 		 .on('mouseup touchcancel touchend blur', function(){
-		 	$(window).off('mousemove touchmove', move)
+		 	$(window).off('mousemove touchmove', change);
 			svg0.removeClass('blocked');
 		})
 	})
