@@ -1,5 +1,7 @@
 //(function(){
 	var minSize=20;
+	var fullSizeMin=90;
+	var fullSizeMax=360;
 	function SVG(tag){
 		return document.createElementNS('http://www.w3.org/2000/svg', tag)
 	}
@@ -93,7 +95,7 @@
 			move.w=i && -move.l || +move.r;
 			move.h=i && -move.t || +move.b;
 		});
-		console.log(move);
+		//console.log(move);
 		function change(e){
 			//
 			var touch=e;
@@ -145,7 +147,22 @@
 		img.attr('xlink:href', URL.createObjectURL(file))
 	})
 
-	$.fn.hideScroll=function() {
+	// Rulers
+
+	var hRuler=$('.h-ruler');
+	for (var i = 0, j; i*20 < fullSizeMax; i++) {
+		j=i*20;
+		hRuler.append('<div><div><div>'+j+'</div><div>'+(j+5)+'</div></div><div><div>'+(j+10)+'</div><div>'+(j+15)+'</div></div></div>');
+	}
+
+	// Whole resize
+
+	var vInp=$('.modular-size .width input').on('input', function(){
+		hRuler.css('--w', this.value);
+		vInp.not(':focus').val(this.value);
+	});//.trigger('input');
+
+	$.fn.hideScroll=function(){ 
 		var el=this[0];
 		if (!el) return;
 		el.style.marginRight='';
