@@ -736,9 +736,9 @@
                             <div class="tabs-content">
                                 <div class="modular tabs-item tabs-item1 active">
                                     <table>
-                                        <tr><td>&nbsp;</td><td class="h-ruler"></td><td></td></tr>
+                                        <tr><td>&nbsp;</td><td><div class="h-ruler"></div></td><td></td></tr>
                                         <tr>
-                                            <td class="v-ruler"></td>
+                                            <td><div class="v-ruler"></div></td>
                                             <td class="canv_cel">
 
 
@@ -807,16 +807,22 @@
                                                     </p>
                                                     <div class="range_box">
                                                         <input type="range" class="zoomRange range-input" multiple id="range-w" min="60" value="90" max="360" data-jcf='{"range": "min"}' />
-                                                        <p class="changeSm" id="changeSm"><span>60 <i>см</i></span> <span>360 <i>см</i></span></p>
+                                                        <div class="changeSm" id="changeSm">
+                                                            <div><span>60</span> <i>см</i></div>
+                                                            <div><span>360</span> <i>см</i></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="size-item">
+                                                <div class="size-item height">
                                                     <p>Высота:
                                                         <input type="number" step=".1"> см
                                                     </p>
                                                     <div class="range_box">
                                                         <input type="range" class="zoomRange range-input" multiple id="range-h" step=".1" min="0" value="30" max="300" data-jcf='{"range": "min"}' />
-                                                        <p class="changeSm" id="changeSm"><span>0 <i>см</i></span> <span>300 <i>см</i></span></p>
+                                                        <div class="changeSm" id="changeSm">
+                                                            <div><span>0</span> <i>см</i></div>
+                                                            <div><span>300</span> <i>см</i></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1437,7 +1443,7 @@
     <script src="../js/jcf.file.min.js"></script>
     <script src="../js/jcf.radio.min.js"></script>
     <script src="../js/jcf.checkbox.min.js"></script>
-    <script src="../js/jcf.range.min.js"></script>
+    <!--script src="../js/jcf.range.min.js"></script-->
     <script src="../js/jquery.collapse_storage.min.js"></script>
     <script src="../js/jquery.collapse.min.js"></script>
     <script src="../js/slick.min.js"></script>

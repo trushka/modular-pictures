@@ -13,13 +13,21 @@
 	}
 
 	var templatesContainer = $('.modular-shapes');
+	var mainContainer = $('.modular');
 	var img = $('.canv_cel image').on('load', function(){
 
 	});
 	var svg0 = $('.canv_cel svg');
 	var h2w={
-		Landscape: .7,
-		Portrait: 1.67
+		Panorama: .4,
+		Landscape: .75,
+		Square: 1,
+		Portrait: 1.5,
+		actual: 1,
+
+		minLandscape: .5,
+		minSquare: .8,
+		minPortrait: 1.1
 	};
 	var padding=.01;
 
@@ -36,23 +44,61 @@
 					+' --w: '+ data.w*100+'%; --h: '+ data.h*100+'%"/>')
 				.appendTo(svg).append('<rect/>');
 
-				return !('s' in data)
+				return !('s' in data) || +data.r
 
 			})) return;
 
 			svg[0].innerHTML+=' ';
 
-			$('<button />').append(svg)//.prop({title: JSON.stringify(tpl)})
+			$('<button />').append(svg).prop({title: JSON.stringify(tpl)})
 			.click(function(e){
 				e.preventDefault();
 				var w0=svg0.width();
-				svg0[0].setAttribute('viewBox', '0, 0, '+w0+', '+w0*h2w[format]);
+				svg0[0].setAttribute('viewBox', '0, 0, '+w0+', '+w0*h2w.actual);
 				$('>g', svg0)[0].innerHTML=svg[0].innerHTML;
 				$('g.module', svg0).addLines();
+				//h2w.actual=h2w.format;
 			}).appendTo(templatesContainer);
 		})
 
-		if (selected) $('button',templatesContainer).eq(selected).focus().click();
+		$('button', templatesContainer).eq(selected||0).focus().click();
+		$('a',templatesContainer.prev()).trigger('open');
+	}
+
+	// load images
+
+	$('input.imageFile').on('change', function(){
+		console.log('inp');
+		var file=this.files[0];
+		if (!file.type.match(/image.*/))  return;
+
+		var img0=new Image();
+		img0.onload=function(){
+			if (!this.width) return;
+			var hw=h2w.actual=this.height/this.width;
+			if (hw>h2w.minPortrait) setTemplates('Portrait');
+			else if (hw>h2w.minSquare) setTemplates('Square');
+			else if (hw>h2w.minLandscape) setTemplates('Landscape');
+			else setTemplates('Panorama');
+			img.attr('xlink:href', this.src);
+			setMinMax();
+		}
+		img0.src=URL.createObjectURL(file)
+	})
+
+	function setMinMax(){
+		var hv=h2w.actual;
+		sizeInp.prop({min: fullSizeMin, max: fullSizeMax});
+		if (hv>1) {
+			wInp.prop({max: Math.ceil(fullSizeMax/hv), min: Math.ceil(fullSizeMin/hv)});
+		} else {
+			hInp.prop({max: Math.ceil(fullSizeMax*hv), min: Math.ceil(fullSizeMin*hv)});
+		}
+		sizeInp.each(function(){
+			$('~.changeSm span', this)
+			 .eq(0).html(this.min).end()
+			 .eq(1).html(this.max)
+		}).trigger('change')
 	}
 
 	// move and resize
@@ -138,29 +184,38 @@
 		})
 	})
 
-	// load images
-
-	$('input.imageFile').on('change', function(){
-		console.log('inp');
-		var file=this.files[0];
-		if (!file.type.match(/image.*/))  return;
-		img.attr('xlink:href', URL.createObjectURL(file))
-	})
-
 	// Rulers
 
 	var hRuler=$('.h-ruler');
-	for (var i = 0, j; i*20 < fullSizeMax; i++) {
+	var wRuler=$('.v-ruler');
+	for (var i = 0, j, html; i*20 < fullSizeMax; i++) {
 		j=i*20;
-		hRuler.append('<div><div><div>'+j+'</div><div>'+(j+5)+'</div></div><div><div>'+(j+10)+'</div><div>'+(j+15)+'</div></div></div>');
+		html='<div><div><div>'+j+'</div><div>'+(j+5)+'</div></div><div><div>'+(j+10)+'</div><div>'+(j+15)+'</div></div></div>'
+		hRuler.append(html);
+		wRuler.append(html);
 	}
 
 	// Whole resize
 
-	var vInp=$('.modular-size .width input').on('input', function(){
-		hRuler.css('--w', this.value);
-		vInp.not(':focus').val(this.value);
-	});//.trigger('input');
+	var wInp=$('.modular-size .width input').on('input change', function(e){
+		var h=(this.value*h2w.actual).toFixed(1)*1;
+		mainContainer.css({'--h': h, '--w': this.value});
+		wInp.val(this.value);
+		hInp.not(':focus').val(h);
+		if (e.originalEvent) hInp.triggerHandler('change');
+		var range=this.max-this.min;
+		wInp.css('background-size', (this.value-this.min)/range*100+'%');
+	});
+	var hInp=$('.modular-size .height input').on('input change', function(e){
+		var w=(this.value/h2w.actual).toFixed(1)*1;
+		mainContainer.css({'--h': this.value, '--w': w});
+		hInp.val(this.value);
+		wInp.not(':focus').val(w);
+		if (e.originalEvent) wInp.triggerHandler('change');
+		var range=this.max-this.min;
+		hInp.css('background-size', (this.value-this.min)/range*100+'%');
+	});
+	var sizeInp=wInp.add(hInp).trigger('input');
 
 	$.fn.hideScroll=function(){ 
 		var el=this[0];
@@ -173,9 +228,5 @@
 		cObj.$details.filter('.modular-shapes').hideScroll()
 	});
 
-	$(function(){
-		setTemplates('Landscape', 49);
-		$('a',templatesContainer.prev()).trigger('open')
-	});
 	function applyTemplate(tpl) {}
 //})()
