@@ -63,7 +63,7 @@
  	left:  20px;
  	right: 20px;
  	top: 0;
- 	width: auto;
+ 	margin: auto;
  	white-space: nowrap;
  	vertical-align: bottom;
  	position: absolute;
@@ -134,6 +134,8 @@
 .modular .canv_cel>svg, .modular-shapes button svg {
 	width: 100%;
 	height: auto;
+	max-height: calc(100vh - 40px);
+	max-width: auto;
 	overflow: visible;
 	display: block;
 	--color: #F808;
@@ -146,10 +148,10 @@ g.module>rect {
 }
 g.module g rect {
 	stroke: transparent;
-	stroke-width: 15;
+	stroke-width: 15em;
 	stroke-linecap: square;
-	width: .01px;
-	height: .01px;
+	width: .01em;
+	height: .01em;
 	x: var(--x);
 	y: var(--y);
 	--xw: calc(var(--x) + var(--w));
@@ -198,13 +200,15 @@ g.module g rect:nth-of-type(8) {
 }
 
 g.module g rect:hover {
-	outline: var(--color) 1px solid;
+	/* outline: var(--color) 1em solid; */
+	stroke: var(--color);
+	stroke-opacity: .6;
 }
 .canv_cel g.module:hover>rect {
 	/* outline: 1px dashed #888; */
 	stroke: var(--color);
-	stroke-width: 2;
-	stroke-dasharray: 3 5;
+	stroke-width: 2em;
+	stroke-dasharray: 3em 5em;
 	stroke-linecap: square;
 }
 .modular .canv_cel g.module>rect {

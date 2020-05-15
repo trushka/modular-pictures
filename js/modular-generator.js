@@ -1,7 +1,28 @@
+// settings
+var modular={
+	Panorama: .4,
+	Landscape: .75,
+	Square: 1,
+	Portrait: 1.5,
+	minLandscape: .5,
+	minSquare: .8,
+	minPortrait: 1.1,
+
+	min: 90,
+	max: 360,
+	minSize: 20,
+	dpi: 30, //100,
+	deltaH: 40, // (viewport height) - (max canvas height)
+
+	tooSmall: 'Выбирите картинку не меньше $*$!'
+}
+
 //(function(){
-	var minSize=20;
-	var fullSizeMin=90;
-	var fullSizeMax=360;
+	//var minSize=20;
+	var dpcm = modular.dpcm || modular.dpi/2.54;
+	var minImgSize = Math.round(modular.min*dpcm);
+	var tooSmall = modular.tooSmall.replace(/\$/g, minImgSize);
+
 	function SVG(tag){
 		return document.createElementNS('http://www.w3.org/2000/svg', tag)
 	}
@@ -19,24 +40,26 @@
 	});
 	var svg0 = $('.canv_cel svg');
 	var h2w={
-		Panorama: .4,
-		Landscape: .75,
-		Square: 1,
-		Portrait: 1.5,
-		actual: 1,
-
-		minLandscape: .5,
-		minSquare: .8,
-		minPortrait: 1.1
+		actual: 1
 	};
 	var padding=.01;
+
+	function resizeCanvas(){
+		svg0[0].setAttribute('viewBox', '0, 0, '+h2w.w+', '+h2w.h);
+		$('>g', svg0)[0].innerHTML+=''; // huck for svg redraw
+		var w=$('>rect', svg0)[0].getBoundingClientRect().width;
+		hRuler.width(w);
+		h2w.dpcm=w/h2w.w;
+		svg0.css({fontSize: 1/h2w.dpcm});
+		resized=false;
+	}
 
 	function setTemplates(format, selected){
 		templatesContainer.not('[aria-hidden]').hide();
 		templatesContainer.html('');
 		templates.forEach(function(tpl,i){
 			if (tpl.format!=format) return;
-			var svg=$('<svg viewBox="0, 0, 100, '+h2w[format]*100+'"/>');
+			var svg=$('<svg viewBox="0, 0, 100, '+modular[format]*100+'"/>');
 			var bl=tpl.bl[0]?tpl.bl:[tpl.bl];
 
 			if (bl.find(function(data){
@@ -48,16 +71,14 @@
 
 			})) return;
 
-			svg[0].innerHTML+=' ';
+			svg[0].innerHTML+='';
 
 			$('<button />').append(svg).prop({title: JSON.stringify(tpl)})
 			.click(function(e){
 				e.preventDefault();
-				var w0=svg0.width();
-				svg0[0].setAttribute('viewBox', '0, 0, '+w0+', '+w0*h2w.actual);
 				$('>g', svg0)[0].innerHTML=svg[0].innerHTML;
 				$('g.module', svg0).addLines();
-				//h2w.actual=h2w.format;
+				resizeCanvas();
 			}).appendTo(templatesContainer);
 		})
 
@@ -75,25 +96,33 @@
 		var img0=new Image();
 		img0.onload=function(){
 			if (!this.width) return;
+			var w=this.width,
+				h=this.height;
+			if (w<minImgSize || h<minImgSize) {
+				alert(tooSmall);
+				return;
+			}
 			var hw=h2w.actual=this.height/this.width;
-			if (hw>h2w.minPortrait) setTemplates('Portrait');
-			else if (hw>h2w.minSquare) setTemplates('Square');
-			else if (hw>h2w.minLandscape) setTemplates('Landscape');
-			else setTemplates('Panorama');
 			img.attr('xlink:href', this.src);
+			h2w.maxW=this.width/dpcm;
+			h2w.maxH=this.height/dpcm;
 			setMinMax();
+			if (hw>modular.minPortrait) setTemplates('Portrait');
+			else if (hw>modular.minSquare) setTemplates('Square');
+			else if (hw>modular.minLandscape) setTemplates('Landscape');
+			else setTemplates('Panorama');
 		}
 		img0.src=URL.createObjectURL(file)
 	})
 
 	function setMinMax(){
-		var hv=h2w.actual;
-		sizeInp.prop({min: fullSizeMin, max: fullSizeMax});
-		if (hv>1) {
-			wInp.prop({max: Math.ceil(fullSizeMax/hv), min: Math.ceil(fullSizeMin/hv)});
-		} else {
-			hInp.prop({max: Math.ceil(fullSizeMax*hv), min: Math.ceil(fullSizeMin*hv)});
-		}
+		var hw=h2w.actual,
+			minW=hw<1?Math.floor(modular.min/hw):modular.min,
+			minH=hw>1?Math.floor(modular.min*hw):modular.min,
+			maxW=Math.min(modular.max, Math.round(h2w.maxW)),
+			maxH=Math.min(modular.max, Math.round(h2w.maxH));
+		wInp.prop({max: maxW, min: minW});
+		hInp.prop({max: maxH, min: minH});
 		sizeInp.each(function(){
 			$('~.changeSm span', this)
 			 .eq(0).html(this.min).end()
@@ -120,8 +149,9 @@
 		var y0=(touch||e).pageY;
 		var id=touch && touch.identifier;
 
-		var pos0=this.querySelector('rect').getBBox();
-		var bBox=svg0[0].getBoundingClientRect();
+		var pos0=this.querySelector('rect').getBoundingClientRect();
+		var bBox=$('>rect', svg0)[0].getBoundingClientRect(),
+			minSize=modular.minSize*h2w.dpcm;
 		/*
 
 		[5]---1---[6]
@@ -156,8 +186,8 @@
 			}
 			var dx=touch.pageX-x0;
 			var dy=touch.pageY-y0;
-			var x=pos0.x,
-				y=pos0.y,
+			var x=pos0.x - bBox.x,
+				y=pos0.y - bBox.y,
 				w=pos0.width,
 				h=pos0.height;
 			var css={};
@@ -168,10 +198,10 @@
 			dx=Math.min(dx, move.w<0?w-minSize:bBox.width-x-w);
 			dy=Math.min(dy, move.h<0?h-minSize:bBox.height-y-h);
 
-			if (move.l) css['--x']=x+dx+'px';
-			if (move.t) css['--y']=y+dy+'px';
-			css['--w']=w+dx*move.w+'px';
-			css['--h']=h+dy*move.h+'px';
+			if (move.l) css['--x']=(x+dx)/bBox.width*100+'%';
+			if (move.t) css['--y']=(y+dy)/bBox.height*100+'%';
+			css['--w']=(w+dx*move.w)/bBox.width*100+'%';
+			css['--h']=(h+dy*move.h)/bBox.height*100+'%';
 
 			$(el).css(css);
 			//return false
@@ -188,7 +218,7 @@
 
 	var hRuler=$('.h-ruler');
 	var wRuler=$('.v-ruler');
-	for (var i = 0, j, html; i*20 < fullSizeMax; i++) {
+	for (var i = 0, j, html; i*20 < modular.max; i++) {
 		j=i*20;
 		html='<div><div><div>'+j+'</div><div>'+(j+5)+'</div></div><div><div>'+(j+10)+'</div><div>'+(j+15)+'</div></div></div>'
 		hRuler.append(html);
@@ -197,36 +227,46 @@
 
 	// Whole resize
 
+	var resized;
+
 	var wInp=$('.modular-size .width input').on('input change', function(e){
-		var h=(this.value*h2w.actual).toFixed(1)*1;
-		mainContainer.css({'--h': h, '--w': this.value});
+		h2w.h=(this.value*h2w.actual).toFixed(1)*1;
+		mainContainer.css({'--h': h2w.h, '--w': this.value});
 		wInp.val(this.value);
-		hInp.not(':focus').val(h);
+		hInp.not(':focus').val(h2w.h);
 		if (e.originalEvent) hInp.triggerHandler('change');
 		var range=this.max-this.min;
 		wInp.css('background-size', (this.value-this.min)/range*100+'%');
+
+		resized=true;
 	});
 	var hInp=$('.modular-size .height input').on('input change', function(e){
-		var w=(this.value/h2w.actual).toFixed(1)*1;
-		mainContainer.css({'--h': this.value, '--w': w});
+		h2w.w=(this.value/h2w.actual).toFixed(1)*1;
+		mainContainer.css({'--h': this.value, '--w': h2w.w});
 		hInp.val(this.value);
-		wInp.not(':focus').val(w);
+		wInp.not(':focus').val(h2w.w);
 		if (e.originalEvent) wInp.triggerHandler('change');
 		var range=this.max-this.min;
 		hInp.css('background-size', (this.value-this.min)/range*100+'%');
 	});
 	var sizeInp=wInp.add(hInp).trigger('input');
+	resized=false;
+
+	$(window).on('touchend touchcancel mouseup blur', function(){
+		if (resized) resizeCanvas();
+	});
+
 
 	$.fn.hideScroll=function(){ 
 		var el=this[0];
 		if (!el) return;
 		el.style.marginRight='';
-		el.style.marginRight=el.clientWidth-el.offsetWidth-.5+'px';		
+		el.style.marginRight=el.clientWidth-el.offsetWidth-.5+'px';	
 	}
 
 	$('.filter-picture').on('opened', function(e, cObj){
 		cObj.$details.filter('.modular-shapes').hideScroll()
 	});
 
-	function applyTemplate(tpl) {}
+	$(window).on('resize', resizeCanvas)
 //})()

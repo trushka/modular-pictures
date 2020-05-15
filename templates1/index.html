@@ -743,6 +743,7 @@
 
 
                                                 <svg >
+                                                    <rect width="100%" height="100%" fill="none" />
                                                     <pattern id="image" patternUnits="userSpaceOnUse" width="100%" height="100%">
                                                         <image preserveAspectRatio="xMidYMid slice" xlink:href="../img/photo1.jpg" width="100%" height="100%"/>
                                                     </pattern>
@@ -777,21 +778,21 @@
                                                         <img src="" alt="" class="download-img">
                                                         <img src="../img/download-icon.png" alt="" class="download-icon">
                                                     </div>
-                                                    <input type="file" class="imageFile">
+                                                    <input type="file" class="imageFile" accept="image/*">
                                                 </div>
                                                 <div class="download">
                                                     <div class="img">
                                                         <img src="" alt="" class="download-img">
                                                         <img src="../img/download-icon.png" alt="" class="download-icon">
                                                     </div>
-                                                    <input type="file" class="imageFile">
+                                                    <input type="file" class="imageFile" accept="image/*">
                                                 </div>
                                                 <div class="download">
                                                     <div class="img">
                                                         <img src="" alt="" class="download-img">
                                                         <img src="../img/download-icon.png" alt="" class="download-icon">
                                                     </div>
-                                                    <input type="file" class="imageFile">
+                                                    <input type="file" class="imageFile" accept="image/*">
                                                 </div>
                                             </div>
                                         </div>
@@ -806,7 +807,7 @@
                                                         <input type="number" name="whole-width" min="60" value="90" max="360" step=".1"> см
                                                     </p>
                                                     <div class="range_box">
-                                                        <input type="range" class="zoomRange range-input" multiple id="range-w" min="60" value="90" max="360" data-jcf='{"range": "min"}' />
+                                                        <input type="range" class="zoomRange range-input" id="range-w" min="60" value="90" max="360" step=".1" />
                                                         <div class="changeSm" id="changeSm">
                                                             <div><span>60</span> <i>см</i></div>
                                                             <div><span>360</span> <i>см</i></div>
@@ -818,7 +819,7 @@
                                                         <input type="number" step=".1"> см
                                                     </p>
                                                     <div class="range_box">
-                                                        <input type="range" class="zoomRange range-input" multiple id="range-h" step=".1" min="0" value="30" max="300" data-jcf='{"range": "min"}' />
+                                                        <input type="range" class="zoomRange range-input" id="range-h" min="0" value="30" max="300" step=".1" />
                                                         <div class="changeSm" id="changeSm">
                                                             <div><span>0</span> <i>см</i></div>
                                                             <div><span>300</span> <i>см</i></div>
