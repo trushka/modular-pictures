@@ -268,5 +268,14 @@ var modular={
 		cObj.$details.filter('.modular-shapes').hideScroll()
 	});
 
+	// show preview
+
+	$('.interior.tabs-item').on('show', function(){
+		var svg=svg0.clone();
+		$('.module g', svg).remove();
+		$('pattern', svg)[0].id='image1';
+		$('svg', this).replaceWith(svg);
+	})
+
 	$(window).on('resize', resizeCanvas)
 //})()
