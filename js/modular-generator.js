@@ -293,6 +293,7 @@ var modular={
 			var touch = e.type=='touchstart' && e.originalEvent.changedTouches[0];
 			if (touch && !$(el).is(':hover')) return;
 			e.preventDefault();
+			wallTab.addClass('grabbing');
 			var x0=(touch||e).pageX;
 			var y0=(touch||e).pageY;
 			var id=touch && touch.identifier;
@@ -328,13 +329,14 @@ var modular={
 			$(window).on(touch?'touchmove':'mousemove', change)
 			 .on('mouseup touchcancel touchend blur', function(){
 			 	$(window).off('mousemove touchmove', change);
+				wallTab.removeClass('grabbing');
 			})
 		})
 	});
 
 	$('.interior-item').click(function(){
 		$('img', wallTab).prop('src', this.dataset.interior)
-	})
+	}).filter('.active').click();
 
 	var wallSizeInp=$('.interior-sizes input').on('input', function(e){
 		wallSizeInp.val(this.value).setBg();

@@ -139,6 +139,9 @@
 	/* max-height: 50%; */
 	filter: drop-shadow(-2px 2px 3px #0009);
 }
+.interior.grabbing *{
+	cursor: grabbing !important;
+}
 
 /*Main frame svg styles -------------------------------------------------------------------------------------------*/
 
