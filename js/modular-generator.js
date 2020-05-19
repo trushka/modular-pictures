@@ -37,7 +37,7 @@ var modular={
 	}
 	$.fn.setMinMax=function(min, max){
 		if (min==='' || isNaN(min)) min=this.prop('min');
-		if (max==='' || isNaN(max)) max=this.prop('max');		
+		if (max==='' || isNaN(max)) max=this.prop('max');
 		$('~.changeSm span', this)
 		 .eq(0).html(min).end()
 		 .eq(1).html(max)
@@ -334,14 +334,16 @@ var modular={
 		})
 	});
 
-	$('.interior-item').click(function(){
-		$('img', wallTab).prop('src', this.dataset.interior)
-	}).filter('.active').click();
-
 	var wallSizeInp=$('.interior-sizes input').on('input', function(e){
 		wallSizeInp.val(this.value).setBg();
 		wallSvg.width(h2w.w/this.value*100+'%')
 	});
+
+	$('.interior-item').click(function(){
+		$('img', wallTab).prop('src', this.dataset.interior);
+		var minMax=this.dataset.size.split(/[\,,\s]+/);
+		wallSizeInp.setMinMax(minMax[0], minMax[1]).trigger('input');
+	}).filter('.active').click();
 
 	$(window).on('resize', resizeCanvas)
 //})()
