@@ -129,15 +129,54 @@
 	color: #0008;
 }
 
+.interior.tabs-item>div{
+	width: 80%;
+	height: 50%;
+	left: 10%;
+	top: 0;
+	position: absolute;
+	--x: 0%;
+	--y: 0%;
+	--size: 50%;
+	filter: drop-shadow(-2px 2px 3px #0009);
+}
+
+.interior.tabs-item>div:not(.active) {
+	display: none;
+}
+/* interior preview areas */
+
+.interior.tabs-item>div:nth-of-type(1){
+	top: 1%;
+}
+.interior.tabs-item>div:nth-of-type(2){
+	top: 3%;
+	left: 5%;
+	width: 90%;
+	height: 53%;
+}
+.interior.tabs-item>div:nth-of-type(3){top: 10%;}
+.interior.tabs-item>div:nth-of-type(4){
+	left: 17%;
+	width: 68%;
+	height: 47%;
+	top: 2%;
+}
+.interior.tabs-item>div:nth-of-type(5){
+	left: 13%;
+	width: 74%;
+	top: 1%;
+}
+.interior.tabs-item>div:nth-of-type(6){
+	top: 1%;
+}
+
 .interior.tabs-item svg{
 	position: absolute;
-	left: 0;
-	top: 0;
-	margin: 30% 50%;
+	left: calc(var(--x) + 50%);
+	top: calc(var(--y) + 50%);
 	transform: translate(-50%, -50%);
-	width: 50%;
-	/* max-height: 50%; */
-	filter: drop-shadow(-2px 2px 3px #0009);
+	width: var(--size);
 }
 .interior.grabbing *{
 	cursor: grabbing !important;
@@ -225,12 +264,15 @@ g.module g rect:hover {
 	stroke-dasharray: 3em 5em;
 	stroke-linecap: square;
 }
-.modular g.module>rect {
+.tabs-content g.module>rect {
 	fill: url(#image);
 }
+
 .interior g.module>rect {
-	fill: url(#image1);
 	cursor: grab;
+}
+.interior g.module g {
+	display: none;
 }
 
 input[type=range] {

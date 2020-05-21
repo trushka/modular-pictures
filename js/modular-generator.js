@@ -146,7 +146,7 @@ var modular={
 
 	// move and resize
 
-	svg0.on('mouseenter touchstart mousedown', 'g.module', function(e){
+	mainContainer.on('mouseenter touchstart mousedown', 'g.module', function(e){
 		if (e.type!='mousedown' && !$(this).is('.blocked g, :last-child')) {
 			$('>g', svg0).append(this);
 			return;
@@ -280,70 +280,78 @@ var modular={
 
 	// show preview
 
-	var wallSvg;
-	
+
 	var wallTab=$('.interior.tabs-item').on('show', function(){
-		wallSvg=svg0.clone();
-		$('.module g', wallSvg).remove();
-		$('pattern', wallSvg)[0].id='image1';
-		$('svg', this).replaceWith(wallSvg);
-		wallSizeInp.setMinMax(Math.max(wallSizeInp[0].min, Math.ceil(h2w.w))).trigger('input');
-
-		$('.module', wallSvg).on('mousedown touchstart', function(e){
-			var touch = e.type=='touchstart' && e.originalEvent.changedTouches[0];
-			if (touch && !$(el).is(':hover')) return;
-			e.preventDefault();
-			wallTab.addClass('grabbing');
-			var x0=(touch||e).pageX;
-			var y0=(touch||e).pageY;
-			var id=touch && touch.identifier;
-
-			var pos0=$('>g', wallSvg)[0].getBoundingClientRect();
-			var bBox=wallSvg[0].parentNode.getBoundingClientRect();
-			var left=parseInt(wallSvg.css('left'));
-			var top=parseInt(wallSvg.css('top'));
-			function change(e){
-				//
-				var touch=e;
-				if (e.type=='touchmove') {
-					let touches=e.originalEvent.changedTouches;
-					for (var i = 0; i < touches.length; i++) {
-						if (touches[i].identifier===id) touch=touches[i]
-					}
-					if (touch==e) return;
-				} else {
-					e.preventDefault();
-				}
-				var dx=touch.pageX-x0;
-				var dy=touch.pageY-y0;
-
-				dx=Math.max(dx, bBox.left-pos0.left);
-				dy=Math.max(dy, bBox.top-pos0.top);
-
-				dx=Math.min(dx, bBox.right-pos0.right);
-				dy=Math.min(dy, bBox.bottom-pos0.bottom);
-
-				wallSvg.css({left: left+dx, top: top+dy});
-			}
-
-			$(window).on(touch?'touchmove':'mousemove', change)
-			 .on('mouseup touchcancel touchend blur', function(){
-			 	$(window).off('mousemove touchmove', change);
-				wallTab.removeClass('grabbing');
-			})
-		})
+		$('.interior-item.active').click();
 	});
+
+	mainContainer.on('show', function(){
+		$('.canv_cel').append(svg0);
+	});
+
+	wallTab.on('mousedown touchstart', '.module', function(e){
+		var touch = e.type=='touchstart' && e.originalEvent.changedTouches[0];
+		if (touch && !$(el).is(':hover')) return;
+		e.preventDefault();
+		wallTab.addClass('grabbing');
+		var x0=(touch||e).pageX;
+		var y0=(touch||e).pageY;
+		var id=touch && touch.identifier;
+
+		var pos0=$('>g', svg0)[0].getBoundingClientRect();
+		var place=svg0.closest('div');
+		var bBox=place[0].getBoundingClientRect();
+		var left=parseInt(place.css('--x'));
+		var top=parseInt(place.css('--y'));
+		function change(e){
+			//
+			var touch=e;
+			if (e.type=='touchmove') {
+				let touches=e.originalEvent.changedTouches;
+				for (var i = 0; i < touches.length; i++) {
+					if (touches[i].identifier===id) touch=touches[i]
+				}
+				if (touch==e) return;
+			} else {
+				e.preventDefault();
+			}
+			var dx=touch.pageX-x0;
+			var dy=touch.pageY-y0;
+
+			dx=Math.max(dx, bBox.left-pos0.left);
+			dy=Math.max(dy, bBox.top-pos0.top);
+
+			dx=Math.min(dx, bBox.right-pos0.right);
+			dy=Math.min(dy, bBox.bottom-pos0.bottom);
+
+			place.css({
+				"--x": left+dx/bBox.width*100+'%',
+				"--y": top+dy/bBox.height*100+'%'
+			});
+		}
+
+		$(window).on(touch?'touchmove':'mousemove', change)
+		 .on('mouseup touchcancel touchend blur', function(){
+		 	$(window).off('mousemove touchmove', change);
+			wallTab.removeClass('grabbing');
+		})
+	})
 
 	var wallSizeInp=$('.interior-sizes input').on('input', function(e){
 		wallSizeInp.val(this.value).setBg();
-		wallSvg.width(h2w.w/this.value*100+'%')
+		svg0.closest('div').css('--size', h2w.w/this.value*100+'%')
 	});
 
-	$('.interior-item').click(function(){
-		$('img', wallTab).prop('src', this.dataset.interior);
-		var minMax=this.dataset.size.split(/[\,,\s]+/);
-		wallSizeInp.setMinMax(minMax[0], minMax[1]).trigger('input');
-	}).filter('.active').click();
+	$('.interior-item').each(function(){
+		var place=$('<div/>').appendTo(wallTab);
+		$(this).click(function(){
+			$('img', wallTab).prop('src', this.dataset.interior);
+			$('.active', wallTab).removeClass('active');
+			svg0.appendTo(place.addClass('active'));
+			var minMax=this.dataset.size.split(/[\,,\s]+/);
+			wallSizeInp.setMinMax(minMax[0], minMax[1]).trigger('input');
+		})
+	})//.filter('.active').click();
 
 	$(window).on('resize', resizeCanvas)
 //})()
