@@ -8,7 +8,7 @@ var modular={
 	minSquare: .8,
 	minPortrait: 1.1,
 
-	min: 90,
+	min: 40,
 	max: 360,
 	minSize: 20,
 	dpi: 30, //100,
@@ -137,8 +137,10 @@ var modular={
 		var hw=h2w.actual,
 			minW=hw<1?Math.floor(modular.min/hw):modular.min,
 			minH=hw>1?Math.floor(modular.min*hw):modular.min,
-			maxW=Math.min(modular.max, Math.round(h2w.maxW)),
-			maxH=Math.min(modular.max, Math.round(h2w.maxH));
+			maxW=Math.min(modular.max, h2w.maxW),
+			maxH=Math.min(modular.max, h2w.maxH);
+		maxW=Math.round(Math.min(maxW, modular.max/hw));
+		maxH=Math.round(Math.min(maxH, modular.max*hw));
 		wInp.setMinMax(minW, maxW);
 		hInp.setMinMax(minH, maxH);
 		sizeInp.trigger('change');
