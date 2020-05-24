@@ -63,7 +63,8 @@ var modular={
 	var padding=.01;
 
 	function resizeCanvas(){
-		svg0[0].setAttribute('viewBox', '0, 0, '+h2w.w+', '+h2w.h);
+		svg0[0].setAttribute('viewBox', '0,0,'+h2w.w+','+h2w.h);
+		$('pattern, image', svg0).attr({width: h2w.w, height: h2w.h});
 		$('>g', svg0)[0].innerHTML+=''; // huck for svg redraw
 		var w=$('>rect', svg0)[0].getBoundingClientRect().width;
 		hRuler.width(w);
@@ -91,7 +92,7 @@ var modular={
 
 			svg[0].innerHTML+='';
 
-			$('<button />').append(svg).prop({title: JSON.stringify(tpl)})
+			$('<button />').append(svg)//.prop({title: JSON.stringify(tpl)})
 			.click(function(e){
 				e.preventDefault();
 				$('>g', svg0)[0].innerHTML=svg[0].innerHTML;
@@ -107,9 +108,9 @@ var modular={
 	// load images
 
 	$('input.imageFile').on('change', function(){
-		console.log('inp');
+		//console.log('inp');
 		var file=this.files[0];
-		if (!file.type.match(/image.*/))  return;
+		if (!file || !file.type.match(/image.*/))  return;
 
 		var img0=new Image();
 		img0.onload=function(){
@@ -121,7 +122,7 @@ var modular={
 				return;
 			}
 			var hw=h2w.actual=this.height/this.width;
-			img.attr('xlink:href', this.src);
+			img.attr('href', this.src);
 			h2w.maxW=this.width/dpcm;
 			h2w.maxH=this.height/dpcm;
 			setMinMax();
@@ -282,16 +283,21 @@ var modular={
 
 	// show preview
 
-
+	var frames=$('.frames');
 	var wallTab=$('.interior.tabs-item').on('show', function(){
 		$('.interior-item.active').click();
+		var single=!$('.module', svg0)[1];
+		frames[single?'show':'hide']();
+		wallTab[single?'addClass':'removeClass']('frame');
+		wallSizeInp.trigger('input');
 	});
 
 	mainContainer.on('show', function(){
 		$('.canv_cel').append(svg0);
+		resizeCanvas();
 	});
 
-	wallTab.on('mousedown touchstart', '.module', function(e){
+	wallTab.on('mousedown touchstart', function(e){
 		var touch = e.type=='touchstart' && e.originalEvent.changedTouches[0];
 		if (touch && !$(el).is(':hover')) return;
 		e.preventDefault();
@@ -301,10 +307,10 @@ var modular={
 		var id=touch && touch.identifier;
 
 		var pos0=$('>g', svg0)[0].getBoundingClientRect();
-		var place=svg0.closest('div');
-		var bBox=place[0].getBoundingClientRect();
-		var left=parseInt(place.css('--x'));
-		var top=parseInt(place.css('--y'));
+		var preview=svg0.closest('div')[0];
+		var bBox=preview.parentNode.getBoundingClientRect();
+		var left=parseInt(preview.style.left || 50);
+		var top=parseInt(preview.style.top || 50);
 		function change(e){
 			//
 			var touch=e;
@@ -326,10 +332,8 @@ var modular={
 			dx=Math.min(dx, bBox.right-pos0.right);
 			dy=Math.min(dy, bBox.bottom-pos0.bottom);
 
-			place.css({
-				"--x": left+dx/bBox.width*100+'%',
-				"--y": top+dy/bBox.height*100+'%'
-			});
+			preview.style.left= left+dx/bBox.width*100+'%';
+			preview.style.top = top+dy/bBox.height*100+'%';
 		}
 
 		$(window).on(touch?'touchmove':'mousemove', change)
@@ -341,15 +345,29 @@ var modular={
 
 	var wallSizeInp=$('.interior-sizes input').on('input', function(e){
 		wallSizeInp.val(this.value).setBg();
-		svg0.closest('div').css('--size', h2w.w/this.value*100+'%')
+		var div=$('.interior .active'),
+			box=$('>g', svg0)[0].getBBox(),
+			box0=svg0[0].getBBox(),
+			w=div.width(),
+			scale=w/this.value;
+		$('.interior-wrapper', div).css({
+			width: box.width*scale+'px',
+			height: box.height*scale+'px',
+			'--size': box0.width*scale+'px',
+			'--dx': (box0.x-box.x)*scale+'px',
+			'--dy': (box0.y-box.y)*scale+'px',
+			'font-size': scale
+		});
+		$('>g', svg0)[0].innerHTML+='';
 	});
 
 	$('.interior-item').each(function(){
-		var place=$('<div/>').appendTo(wallTab);
+		var place=$('<div><div class="interior-wrapper"/></div>').appendTo(wallTab);
 		$(this).click(function(){
 			$('img', wallTab).prop('src', this.dataset.interior);
 			$('.active', wallTab).removeClass('active');
-			svg0.appendTo(place.addClass('active'));
+			place.addClass('active');
+			$('div', place).append(svg0);
 			var minMax=this.dataset.size.split(/[\,,\s]+/);
 			wallSizeInp.setMinMax(minMax[0], minMax[1]).trigger('input');
 		})
