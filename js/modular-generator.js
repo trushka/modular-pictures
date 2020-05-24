@@ -373,5 +373,13 @@ var modular={
 		})
 	})//.filter('.active').click();
 
+	$('.ramu-item').click(function(){
+		var css=(this.dataset.frame || 'none').replace(/\(([^"].+)\)/, '("$1")');
+		wallTab.css({
+			'--frame': css,
+			'--fw': (css.match(/\d*\.?\d+em/)||0)[0]
+		})
+	})
+
 	$(window).on('resize', resizeCanvas)
 //})()

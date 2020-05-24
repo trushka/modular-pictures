@@ -150,14 +150,16 @@
 	left:  50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	margin: -5px;
+	/* margin: -5px; */
 	box-sizing: content-box;
 	cursor: grab;
 	height: var(--h);
 	pointer-events: auto;
 }
 .interior.tabs-item.frame .interior-wrapper {
-	border: 5em solid #B9AE82;
+	border: var(--fw) solid transparent;
+	border-image: var(--frame);
+	/* border-image: url("../img/frames/frame1.png") 65 68 / 5em stretch; */
 }
 .interior.tabs-item svg {
 	position: absolute;
