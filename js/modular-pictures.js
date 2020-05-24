@@ -185,7 +185,7 @@ $(document).ready(function() {
         $(this).addClass("active"),
         $(".gallery-photo .tabs-item").removeClass("active"),
         $("." + a).addClass("active").trigger('show'),
-        $(".interior-slider").get(0).slick.setPosition(),
+        //$(".interior-slider").get(0).slick.setPosition(),
         $(".ramu-slider").get(0).slick.setPosition(),
         $(".ramu-item .img").matchHeight({
             byRow: !1

@@ -108,7 +108,7 @@ var modular={
 	// load images
 
 	$('input.imageFile').on('change', function(){
-		//console.log('inp');
+		var inp=this;
 		var file=this.files[0];
 		if (!file || !file.type.match(/image.*/))  return;
 
@@ -121,6 +121,8 @@ var modular={
 				alert(tooSmall);
 				return;
 			}
+			$(inp).addClass('selected').hide().parents('.download')
+			 .children('.img').css('background-image', 'url("'+this.src+'")')
 			var hw=h2w.actual=this.height/this.width;
 			img.attr('href', this.src);
 			h2w.maxW=this.width/dpcm;
@@ -131,7 +133,16 @@ var modular={
 			else if (hw>modular.minLandscape) setTemplates('Landscape');
 			else setTemplates('Panorama');
 		}
-		img0.src=URL.createObjectURL(file)
+		img0.src=URL.createObjectURL(file);
+		$(this).data('img', img0)
+
+	}).on('click', function(e){
+		$('input.imageFile').not(this).show();
+		if ($(this).hasClass('selected')) {
+			e.preventDefault();
+			$(this).data('img').onload();
+			return false;
+		}
 	})
 
 	function setMinMax(){
@@ -364,6 +375,8 @@ var modular={
 	$('.interior-item').each(function(){
 		var place=$('<div><div class="interior-wrapper"/></div>').appendTo(wallTab);
 		$(this).click(function(){
+			$(this.parentNode).trigger('focus');
+			$(".interior-slider")[0].slick.setPosition();
 			$('img', wallTab).prop('src', this.dataset.interior);
 			$('.active', wallTab).removeClass('active');
 			place.addClass('active');
