@@ -7,6 +7,7 @@ var modular={
 	minLandscape: .5,
 	minSquare: .8,
 	minPortrait: 1.1,
+	maxW: 3000,
 
 	min: 40,
 	max: 360,
@@ -116,15 +117,35 @@ var modular={
 		img0.onload=function(){
 			if (!this.width) return;
 			var w=this.width,
-				h=this.height;
+				h=this.height,
+				src=this.src,
+				maxW=modular.maxW;
+
 			if (w<minImgSize || h<minImgSize) {
 				alert(tooSmall);
 				return;
 			}
-			$(inp).addClass('selected').hide().parents('.download')
-			 .children('.img').css('background-image', 'url("'+this.src+'")')
+			$(inp).addClass('selected').hide()
+
 			var hw=h2w.actual=this.height/this.width;
-			img.attr('href', this.src);
+			
+			if (w>maxW || h>maxW) {
+				URL.revokeObjectURL(src);
+				var w0=Math.min(maxW, maxW/hw),
+					h0=Math.min(maxW, maxW*hw),
+					canvas = $('<canvas>').prop({width: w0, height: h0})[0],
+					ctx=canvas.getContext('2d');
+				ctx.drawImage(img0, 0, 0, w0, h0);
+				canvas.toBlob(function(blob){
+					img0.src=URL.createObjectURL(blob)
+				})
+				return;
+			}
+			$(inp).parents('.download').children('.img')
+			 .css('background-image', 'url("'+this.src+'")')
+
+			img.attr('href', src);
+
 			h2w.maxW=this.width/dpcm;
 			h2w.maxH=this.height/dpcm;
 			setMinMax();
