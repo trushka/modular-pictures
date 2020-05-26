@@ -15,7 +15,8 @@ var modular={
 	dpi: 30, //100,
 	deltaH: 40, // (viewport height) - (max canvas height)
 
-	tooSmall: 'Выбирите картинку не меньше $*$!'
+	tooSmall: 'Выбирите картинку не меньше $*$!',
+	notSupport: 'Не поддерживаемый формат изображения!'
 }
 
 //(function(){
@@ -111,11 +112,19 @@ var modular={
 	$('input.imageFile').on('change', function(){
 		var inp=this;
 		var file=this.files[0];
-		if (!file || !file.type.match(/image.*/))  return;
+
+		if (!file)  return;
+		if (!file.type.match(/image.*/))  {
+			alert(modular.notSupport);
+			return;
+		}
 
 		var img0=new Image();
 		img0.onload=function(){
-			if (!this.width) return;
+			if (!this.width) {
+				alert(modular.notSupport);
+				return;
+			}
 			var w=this.width,
 				h=this.height,
 				src=this.src,
@@ -154,6 +163,7 @@ var modular={
 			else if (hw>modular.minLandscape) setTemplates('Landscape');
 			else setTemplates('Panorama');
 		}
+		img0.onerror=function(){alert(modular.notSupport)};
 		img0.src=URL.createObjectURL(file);
 		$(this).data('img', img0)
 
@@ -331,7 +341,7 @@ var modular={
 
 	wallTab.on('mousedown touchstart', function(e){
 		var touch = e.type=='touchstart' && e.originalEvent.changedTouches[0];
-		if (touch && !$(el).is(':hover')) return;
+		// if (touch && !$(this).is(':hover')) return;
 		e.preventDefault();
 		wallTab.addClass('grabbing');
 		var x0=(touch||e).pageX;
