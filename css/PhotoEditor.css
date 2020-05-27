@@ -1,0 +1,93 @@
+.product-download {
+	margin: -6px 0 0;
+}
+.product-download button {
+	border: 1px solid #8c535b;
+	border-radius: 10px;
+	/* background-color: rgba(255,255,255,0.5); */
+	background: url(../img/download-icon.png) center no-repeat;
+	overflow: hidden;
+	width: calc(33.33% - 10px);
+	height: 20%;
+	margin: 8px 0;
+}
+.product-download button img {
+	opacity: 0;
+	width: 101%;
+	height: 80px;
+	display: block;
+}
+
+.DragAndDrop
+{   
+    position: fixed;
+	margin-left: -20px;
+	margin-top: -20px;
+	height: 40px; 
+	width: 40px;	
+	pointer-events: none;
+	object-fit: cover;
+	opacity: .7;
+	-moz-animation-name: DragAndDrop;
+	-moz-animation-duration: 1.2s;
+	-webkit-animation-name: DragAndDrop;
+	-webkit-animation-duration: .2s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-direction: normal;
+	-moz-animation-delay: 0;
+	-moz-animation-play-state: running;
+	-moz-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: normal;
+	-webkit-animation-delay: 0;
+	-webkit-animation-play-state: running;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes DragAndDrop {
+	0% {
+		-moz-transform: scale(1.0);
+		-webkit-transform: scale(1.0);
+	}
+	100% {
+		-moz-transform: scale(3.0);
+		-webkit-transform: scale(3.0);
+	}
+}
+@-moz-keyframes DragAndDrop {
+	0% {
+	-moz-transform: scale(1.0);
+	-webkit-transform: scale(1.0);
+}
+100% {
+	-moz-transform: scale(3.0);
+	-webkit-transform: scale(3.0);
+}
+}
+
+
+
+.PhotoEditor_canvas
+{
+-moz-user-select: none;
+-khtml-user-select: none;
+user-select: none; 	
+}
+
+.PhotoEditor_row-resize{
+	cursor: row-resize;
+}
+
+
+.PhotoEditor_col-resize
+{
+	cursor: col-resize;	
+}
+
+
+.PhotoEditor_move
+{
+	cursor: move;	
+}

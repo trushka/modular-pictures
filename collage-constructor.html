@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VIAR</title>
+    <meta name="cmsmagazine" content="5a7189a28fb3dc68238dbdb44c9ea99c" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/collage-constructor.css">
+
+    <link rel="stylesheet" href="css/PhotoEditor.css?v5">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="popup-login-registration popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Вход / Регистрация</h3>
+                <ul>
+                    <li><a class="login" href="javascript:void(0)"><span>Войти</span></a></li>
+                    <li><a class="registration" href="javascript:void(0)"><span>зарегистрироваться</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="popup-registration popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Регистрация</h3>
+                <form action="">
+                    <div class="input">
+                        <label>Электронная почта</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Пароль</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Повторить пароль</label>
+                        <input type="text">
+                    </div>
+                    <div class="invited">
+                        <p class="invited_js">Меня пригласил друг</p>
+                        <div class="input">
+                            <label>Введите код приглашения</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <button><span>ПОдтвердить</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-login popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Вход в личный кабинет</h3>
+                <form action="">
+                    <div class="input">
+                        <label>Электронная почта</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Пароль</label>
+                        <input type="text">
+                    </div>
+                    <p class="forgotYour_js">Забыли пароль?</p>
+                    <button><span>Войти</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-forgotYour popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Восстановление пароля</h3>
+                <form action="">
+                    <div class="input">
+                        <label>Электронная почта</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Новый пароль</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Повторите новый пароль</label>
+                        <input type="text">
+                    </div>
+                    <button><span>Подтвердить</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-dates popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Введите две даты</h3>
+                <p>Напишите даты Ваших друзей, родственников, праздников и за 10 дней получите предложение со скидкой на один из наших товаров. </p>
+                <strong><i>*</i> Условия акции: - Акция вступает в силу через 2 месяца, после полученной информации. </strong>
+                <form action="">
+                    <div class="date">
+                        <div class="input">
+                            <input type="text" placeholder="Выберите первую дату">
+                            <input type="text" placeholder="Напиишите торжество">
+                        </div>
+                        <div class="input">
+                            <input type="text" placeholder="Выберите вторую дату">
+                            <input type="text" placeholder="Напишите торжество">
+                        </div>
+                    </div>
+                    <button><span>Принять</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-lnvite-friend popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Пригласи друга</h3>
+                <p>Сгенерируйте код купона для приглашения и Вам зачислятся денежные бонусы</p>
+                <form action="">
+                    <div class="date">
+                        <input type="text" placeholder="">
+                    </div>
+                    <button><span>Копировать код</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-print-screen popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Пришлите PrintScreen</h3>
+                <p>Публикация на Facebook о нашем сайте дает <strong>скидку 2%</strong></p>
+                <form action="">
+                    <div class="file">
+                        <input type="file">
+                    </div>
+                    <button><span>загрузить</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-photo popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Пришлите качественное фото с нашей картиной</h3>
+                <p>После отправки фото с Вами свяжется <strong>Наш менеджер</strong></p>
+                <strong><i>*</i>Условия акции: Акция действует один раз в год, после оформления заказа.</strong>
+                <form action="">
+                    <div class="file">
+                        <input type="file">
+                    </div>
+                    <button><span>загрузить</span></button>
+                </form>
+            </div>
+        </div>
+
+        <header>
+            <div class="header-content clearfix">
+                <div class="menu-logo">
+                    <a href="index.html" class="logo"><img src="img/logo.png" alt=""></a>
+                    <span class="open-menu">
+                <span></span>
+                    </span>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">Услуги</a>
+                                <ul>
+                                    <li><a href="">Фото картины и композиции</a></li>
+                                    <li><a href="collage.html">Фото Коллажи</a></li>
+                                    <li><a href="modular-pictures.html">Модульные картины</a></li>
+                                    <li><a href="gallery.html">Галерея картин</a></li>
+                                    <li><a href="">Графический портрет</a></li>
+                                    <li><a href="">Стилизация</a></li>
+                                    <li><a href="">Картины маслом</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="gallery.html">Галерея</a>
+                                <ul>
+                                    <li><a href="gallery-modular.html">Модульные картины</a></li>
+                                    <li><a href="gallery-photo.html">Фото картины</a></li>
+                                    <li><a href="gallery-reproductions.html">Репродукции</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="about.html">О ViarCanvas</a></li>
+                            <li><a href="gift-card.html">Подарочная карта</a></li>
+                            <li><a href="javascript:void(0)">Идеи</a></li>
+                        </ul>
+                    </nav>
+                    <a href="stocks.html" class="discount">
+                        <img src="img/discount-img.png" alt="">
+                        <span><i>%</i></span>
+                    </a>
+                </div>
+                <div class="office-basket-transfer">
+                    <a href="javascript:void(0)" class="office"><i class="icon-icon31"></i><strong>Личный кабинет</strong></a>
+                    <!-- personal-area.html -->
+                    <a href="basket.html" class="basket"><i class="icon-icon11"></i><strong>Корзина</strong><span>5</span></a>
+                    <ul class="transfer">
+                        <li>
+                            <a href="javascript:void(0)"><img src="img/transfer-img1.png" alt=""> Ru</a>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="img/transfer-img2.png" alt=""> En</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="img/transfer-img3.png" alt=""> Lv</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="img/transfer-img4.png" alt=""> Ee</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="img/transfer-img5.png" alt=""> Lt</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="bread-crumbs">
+            <i class="icon-icon3"></i>
+            <ul>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="javascript:void()">Коллажи</a></li>
+                <li><span>Семейная Идиллия</span></li>
+            </ul>
+        </div>
+
+        <section class="generate">
+            <div class="generate-content">
+                <div class="title">
+                    <p>ViarStudia</p>
+                    <h4>будет рада сделать для Вас фото коллаж на холсте по самым выгодным ценам.</h4>
+                </div>
+                <div class="gallery-photo">
+                    <div class="photo-content">
+                        <div class="slider-tabs">
+                            <canvas width='720' height='500' id='canvas' class="PhotoEditor_canvas"> </canvas>
+                        </div>
+                        <div class="photo-filter">
+                            <div class="filter-picture tabs-item tabs-item1 active">
+                                <form onsubmit="return false">
+                                    <div class="filter-accordion">
+                                        <h2 class="accordion-title open"><span>1.</span> Выберите <span> Продукт</span></h2>
+                                        <div class="accordion-content">
+                                            <div class="product-download" id="imgs">
+                            					<button><img src=""></button>
+                            					<button><img src=""></button>
+                            					<button><img src=""></button>
+
+                            					<button><img src=""></button>
+                            					<button><img src=""></button>
+                            					<button><img src=""></button>
+                                           </div>
+                                        </div>
+                                        <h2 class="accordion-title open"><span>2.</span> Выберите <span> Фон</span></h2>
+                                        <div class="accordion-content">
+                                            <div class="product-download" id="backgrounds">
+                            					<button><img height="80"  width="125" src=""/></button>
+                            					<button><img height="80"  width="125" /></button>
+                            					<button><img height="80"  width="125" /></button>
+                                           </div>
+                                        </div>
+                                        <h2 class="accordion-title open"><b>Инструментарий</b></h2>
+                                        <div class="accordion-content">
+                                            <div class="size">
+                                                <input type="button" id="add_vertical" value="Добавить вертикально"/><br /><br />
+                                                <input type="button" id="add_horizontal" value="Добавить горизонтально"/><br /><br />
+                                                <input type="button" id="photo_zoom_minus" value="-"/><br /><br />
+                                                <input type="button" id="photo_zoom_plus" value="+"/><br /><br />
+                                                <input type="button" id="clear" value="Очистить"/><br /><br />
+                                              
+                                                <input type="button" id="save_template" value="сохранить шаблон в консоль"/><br /><br />
+                                              
+                                              
+                                                <input type="button" id="cell_delete" value="удалить выделенную ячейку"/><br /><br />
+                                                
+                                                
+                                                
+                                                <input type="button" id="left_turn" value="поворот влево"/><br /><br />
+                                                <input type="button" id="turn_right" value="поворот вправо"/><br /><br />
+                                                
+                                                
+                                                <input type="button" id="invert_x" value="отразить по X"/><br /><br />
+                                                <input type="button" id="invert_y" value="отразить по Y"/><br /><br />
+                                                
+                                                <input type="button" id="delete_background" value="удалить фон"/><br /><br />
+                                                
+                                                <input type="button" id="Undo" value="Undo"/><br /><br />
+                                                <input type="button" id="Redo" value="Redo"/><br /><br />
+                                                
+                                                <input type="button" id="loadPhotos_1" value="Загрузить все фото по порядку"/><br /><br />
+                                                <input type="button" id="loadPhotos_2" value="Загрузить все фото по рандому"/><br /><br />
+                                                <input type="button" id="loadPhotos_3" value="Загрузить все фото по размеру"/><br /><br />
+                                                <input type="button" id="loadPhotos_4" value="Загрузить все фото и развернуть по размеру"/>
+                                                <input type="button" id="out" value="out"/>
+                                            </div>
+                                        </div>
+                                        <h2 class="accordion-title open"><span>3.</span> Выберите <span>Форму</span></h2>
+                                        <div class="accordion-content">
+                                            <div class="collage-shapes">
+                                                <ul>
+                                                    <li><a class="btt-template-1" id="template_1"><i class="icon-down-arrow"></i><img src="img/collage-shapes-img1.png" alt=""></a></li>
+                                                    <li><a class="btt-template-2" id="template_2"><i class="icon-down-arrow"></i><img src="img/collage-shapes-img2.png" alt=""></a></li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <h2 class="accordion-title open"><span>4.</span> Выберите <span>Размер</span></h2>
+                                        <div class="accordion-content">
+                                            <div class="size">
+                                                <ul>
+                                                    <li><a class="active" href="javascruot:void(0)"><strong>30<span>см</span></strong> х <strong>40<span>см</span></strong> - <strong>13 &euro;</strong></a></li>
+                                                    <li><a href="javascruot:void(0)"><strong>40<span>см</span></strong> х <strong>60<span>см</span></strong> - <strong>19 &euro;</strong></a></li>
+                                                    <li><a href="javascruot:void(0)"><strong>50<span>см</span></strong> х <strong>70<span>см</span></strong> - <strong>27 &euro;</strong></a></li>
+                                                    <li><a href="javascruot:void(0)"><strong>55<span>см</span></strong> х <strong>80<span>см</span></strong> - <strong>35 &euro;</strong></a></li>
+                                                    <li><a href="javascruot:void(0)"><strong>30<span>см</span></strong> х <strong>40<span>см</span></strong> - <strong>13 &euro;</strong></a></li>
+                                                    <li><a href="javascruot:void(0)"><strong>40<span>см</span></strong> х <strong>60<span>см</span></strong> - <strong>19 &euro;</strong></a></li>
+                                                    <li><a href="javascruot:void(0)"><strong>50<span>см</span></strong> х <strong>70<span>см</span></strong> - <strong>27 &euro;</strong></a></li>
+                                                    <li><a href="javascruot:void(0)"><strong>55<span>см</span></strong> х <strong>80<span>см</span></strong> - <strong>35 &euro;</strong></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <h2 class="accordion-title open"><span>5.</span> Выберите <span> Вид холста</span></h2>
+                                        <div class="accordion-content">
+                                            <div class="canvas-items">
+                                                <div class="canvas-item">
+                                                    <input name="q" type="radio">
+                                                    <label>Эконом <span>(плотность 280г/м2)</span><i class="icon-icon1"></i></label>
+                                                </div>
+                                                <div class="canvas-item">
+                                                    <input name="q" type="radio" checked>
+                                                    <label>Интерьерный <span>(плотность 500г/м2)</span><strong>Хит!</strong><i class="icon-icon1"></i></label>
+                                                </div>
+                                                <div class="canvas-item">
+                                                    <input name="q" type="radio">
+                                                    <label>Синтетический <span>(плотность 230г/м2)</span><i class="icon-icon1"></i></label>
+                                                </div>
+                                                <div class="canvas-item">
+                                                    <input name="q" type="radio">
+                                                    <label>Хлопковый <span>(плотность 340г/м2)</span><i class="icon-icon1"></i></label>
+                                                </div>
+                                                <div class="canvas-item">
+                                                    <input name="q" type="radio">
+                                                    <label>Глянцевый <span>(плотность 280г/м2)</span><i class="icon-icon1"></i></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2 class="accordion-title open"><span>6.</span> <span> Комментарии</span></h2>
+                                        <div class="accordion-content">
+                                            <div class="comments">
+                                                <textarea></textarea>
+                                                <ul>
+                                                    <li><a href="javascript:void(0)"><i class="icon-icon16"></i>Отложить</a></li>
+                                                    <li><a href="javascript:void(0)"><i class="icon-icon13"></i>Поделиться</a></li>
+                                                </ul>
+                                                <div class="comments-item">
+                                                    <input type="checkbox" checked>
+                                                    <label>Подарочная упаковка <i class="icon-icon1"></i></label>
+                                                </div>
+                                                <div class="comments-item">
+                                                    <input type="checkbox" checked>
+                                                    <label>Эксклюзивная упаковка <i class="icon-icon1"></i></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="total-price">
+                                        <div class="total-title"><span>Итоговая цена</span></div>
+                                        <div class="sum">
+                                            <h4>112 &euro;</h4>
+                                        </div>
+                                        <a href="javascript:void(0)"><span>Заказать!</span></a>
+                                        <ul>
+                                            <li><strong>Срок изготовления:</strong></li>
+                                            <li>Стандарт - 3 рабочих дня</li>
+                                            <li>Экспресс - 1 рабочие сутки</li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="filter-interior tabs-item tabs-item2">
+                                <form>
+                                    <div class="filter-accordion">
+                                        <h2 class="accordion-title open"><span>Стандартные интерьеры</span></h2>
+                                        <div class="accordion-content">
+                                            <div class="interior-slider">
+                                                <div>
+                                                    <div class="interior-item active" data-interior="img/interior-slider-img.png">
+                                                        <i class="icon-down-arrow"></i>
+                                                        <img src="img/interior-slider-img.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="interior-item" data-interior="img/interior-slider-img2.png">
+                                                        <i class="icon-down-arrow"></i>
+                                                        <img src="img/interior-slider-img2.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="interior-item" data-interior="img/interior-slider-img3.png">
+                                                        <i class="icon-down-arrow"></i>
+                                                        <img src="img/interior-slider-img3.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="interior-item" data-interior="img/interior-slider-img2.png">
+                                                        <i class="icon-down-arrow"></i>
+                                                        <img src="img/interior-slider-img2.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="interior-item" data-interior="img/interior-slider-img.png">
+                                                        <i class="icon-down-arrow"></i>
+                                                        <img src="img/interior-slider-img.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="interior-item" data-interior="img/interior-slider-img3.png">
+                                                        <i class="icon-down-arrow"></i>
+                                                        <img src="img/interior-slider-img3.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="interior-sizes">
+                                                <div class="size-item">
+                                                    <span>Размеры стен:</span>
+                                                    <ul>
+                                                        <li>
+                                                            <input type="text" placeholder="345 см">
+                                                        </li>
+                                                        <li>
+                                                            <input type="text" placeholder="284 см">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="size-item">
+                                                    <span>Выберите размер картины:</span>
+                                                    <ul>
+                                                        <li>
+                                                            <input type="text" placeholder="146 см">
+                                                        </li>
+                                                        <li>
+                                                            <input type="text" placeholder="89 см">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="range_box">
+                                                <input type="range" class="zoomRange range-input" id="my-range" step="1" min="0" value="30" max="60" />
+                                                <p class="changeSm" id="changeSm"><span>146 <i>см</i></span> <span>89 <i>см</i></span></p>
+                                            </div>
+                                        </div>
+                                        <h2 class="accordion-title open"><span>2.</span> Выберите <span>Раму</span></h2>
+                                        <div class="accordion-content">
+                                            <div class="ramu-slider">
+                                                <div>
+                                                    <div class="ramu-item active" data-interior="img/ramu-img1.png">
+                                                        <span class="code">1.021.464</span>
+                                                        <div class="img">
+                                                            <i class="icon-down-arrow"></i>
+                                                            <img src="img/ramu-img1.png" alt="">
+                                                        </div>
+                                                        <span class="price">+ 2 199 &#8381;</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="ramu-item" data-interior="img/ramu-img2.png">
+                                                        <span class="code">290.703.301</span>
+                                                        <div class="img">
+                                                            <i class="icon-down-arrow"></i>
+                                                            <img src="img/ramu-img2.png" alt="">
+                                                        </div>
+                                                        <span class="price">+ 2 409 &#8381;</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="ramu-item" data-interior="img/ramu-img3.png">
+                                                        <span class="code">418.463.091</span>
+                                                        <div class="img">
+                                                            <i class="icon-down-arrow"></i>
+                                                            <img src="img/ramu-img3.png" alt="">
+                                                        </div>
+                                                        <span class="price">+ 2 009 &#8381;</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="ramu-item" data-interior="img/ramu-img1.png">
+                                                        <span class="code">1.021.464</span>
+                                                        <div class="img">
+                                                            <i class="icon-down-arrow"></i>
+                                                            <img src="img/ramu-img1.png" alt="">
+                                                        </div>
+                                                        <span class="price">+ 2 199 &#8381;</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="ramu-item" data-interior="img/ramu-img2.png">
+                                                        <span class="code">290.703.301</span>
+                                                        <div class="img">
+                                                            <i class="icon-down-arrow"></i>
+                                                            <img src="img/ramu-img2.png" alt="">
+                                                        </div>
+                                                        <span class="price">+ 2 409 &#8381;</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="ramu-item" data-interior="img/ramu-img3.png">
+                                                        <span class="code">418.463.091</span>
+                                                        <div class="img">
+                                                            <i class="icon-down-arrow"></i>
+                                                            <img src="img/ramu-img3.png" alt="">
+                                                        </div>
+                                                        <span class="price">+ 2 009 &#8381;</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="ramu-item" data-interior="img/ramu-img1.png">
+                                                        <span class="code">1.021.464</span>
+                                                        <div class="img">
+                                                            <i class="icon-down-arrow"></i>
+                                                            <img src="img/ramu-img1.png" alt="">
+                                                        </div>
+                                                        <span class="price">+ 2 199 &#8381;</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="ramu-item" data-interior="img/ramu-img2.png">
+                                                        <span class="code">290.703.301</span>
+                                                        <div class="img">
+                                                            <i class="icon-down-arrow"></i>
+                                                            <img src="img/ramu-img2.png" alt="">
+                                                        </div>
+                                                        <span class="price">+ 2 409 &#8381;</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="total-price">
+                                        <div class="total-title"><span>Итоговая цена</span></div>
+                                        <div class="sum">
+                                            <h4>372 &euro;</h4>
+                                        </div>
+                                        <a href="javascript:void(0)"><span>Добавить в корзину!</span></a>
+                                        <ul>
+                                            <li><strong>Срок изготовления:</strong></li>
+                                            <li>Стандарт - 3 рабочих дня</li>
+                                            <li>Экспресс - 1 рабочие сутки</li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="packaging">
+            <div class="title">
+                <h2>упаковка</h2>
+                <p>входит в стоимость</p>
+            </div>
+            <div class="packaging-content">
+                <div class="packaging-item clearfix">
+                    <div class="text">
+                        <p>При заказе фото на холсте в стоимость уже входит фирменная упаковка, с которой Вы гарантированно доставите картину в целости и сохранности. А чтобы первое впечатление от подарка было еще ярче, Вы можете заказать эксклюзивную подарочную
+                            упаковку</p>
+                    </div>
+                    <img src="img/packaging-img.png" alt="" class="packaging-img">
+                </div>
+                <div class="package-size clearfix">
+                    <h4>Стандартная упаковка (см)</h4>
+                    <ul>
+                        <li>43 <i>x</i> 53</li>
+                        <li>60 <i>x</i> 80</li>
+                        <li>75 <i>x</i> 95</li>
+                        <li>90 <i>x</i> 110</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="stages">
+            <div class="stages-container">
+                <h2>Этапы оформления заказа</h2>
+                <div class="stages-items">
+                    <div class="stages-item">
+                        <div class="img">
+                            <img src="img/stages-img1.png" alt="" class="img-illustration">
+                            <img src="img/img-after1.png" alt="" class="img-after img-after1">
+                        </div>
+                        <div class="text">
+                            <img src="img/stages-item-nubmer1.png" alt="">
+                            <p>Кликните <strong>“Заказать холст”, загрузите Ваше фото</strong> и укажите желаемые параметры холста</p>
+                        </div>
+                    </div>
+                    <div class="stages-item">
+                        <div class="img">
+                            <img src="img/stages-img2.png" alt="" class="img-illustration">
+                            <img src="img/img-after2.png" alt="" class="img-after img-after2">
+                        </div>
+                        <div class="text">
+                            <img src="img/stages-item-nubmer2.png" alt="">
+                            <p>Мы связываемся с Вами для <strong>уточнения всех деталей</strong> в течении рабочего дня.</p>
+                        </div>
+                    </div>
+                    <div class="stages-item">
+                        <div class="img">
+                            <img src="img/stages-img3.png" alt="" class="img-illustration">
+                            <img src="img/img-after3.png" alt="" class="img-after img-after3">
+                        </div>
+                        <div class="text">
+                            <img src="img/stages-item-nubmer3.png" alt="">
+                            <p><strong>Создаем и утверждаем</strong> с Вами <strong>макет</strong> будущего холста.</p>
+                        </div>
+                    </div>
+                    <div class="stages-item">
+                        <div class="img">
+                            <img src="img/stages-img4.png" alt="" class="img-illustration">
+                            <img src="img/img-after4.png" alt="" class="img-after img-after4">
+                        </div>
+                        <div class="text">
+                            <img src="img/stages-item-nubmer4.png" alt="">
+                            <p><strong>Приступаем к изготовлению</strong> Вашего холста, монтируем крепления и упаковываем Время заказа от 1 до 7 дней.</p>
+                        </div>
+                    </div>
+                    <div class="stages-item">
+                        <div class="img">
+                            <img src="img/stages-img5.png" alt="" class="img-illustration">
+                            <img src="img/img-after5.png" alt="" class="img-after img-after5">
+                        </div>
+                        <div class="text">
+                            <img src="img/stages-item-nubmer5.png" alt="">
+                            <p><strong>Оперативно доставляем</strong> заказ прямо к Вашему дому. Или в любое другое место</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="everything">
+            <img src="img/everything-img.png" alt="" class="everything-img">
+            <div class="everything-content">
+                <div class="title">
+                    <span>для Вашего удобства у нас есть сервис</span>
+                    <h3>“ Бесплатной помощи дизайнера ”</h3>
+                </div>
+                <ul>
+                    <li>
+                        <p><i>У Вас есть сомнения ?</i> Мы поможем найти лучшее решение и предложим профессиональный совет </p>
+                    </li>
+                    <li>
+                        <p><i>Широкие возможности.</i> Для Вас создадим один или несколько макетов, учитывая индивидуальные особенности фотографии.</p>
+                    </li>
+                    <li>
+                        <p><i>Идеальный результат.</i> Для всех заказов мы вносим правки, пока Вы не скажите - ДА!</p>
+                    </li>
+                    <li>
+                        <p><i>Любые идеи и пожелания.</i> Пожалуйста свяжитесь с наши для получения более подробной информации. </p>
+                    </li>
+                    <li>
+                        <span>С радостью расскажем Вам о всех технических и творческих возможностях.</span>
+                    </li>
+                </ul>
+                <strong>Всё проще и доступнее <span>чем кажется</span></strong>
+            </div>
+        </section>
+
+        <section class="components-pictures">
+            <div class="title">
+                <img src="img/components-img.png" alt="">
+                <h2>составляющих наших картин</h2>
+            </div>
+            <div class="components-content">
+                <img src="img/components-content-img2.png" alt="" class="components-content-img">
+                <div class="components-items">
+                    <div class="components-item">
+                        <img src="img/components-item-icon1.png" alt="">
+                        <p>Высочайшие качество материалов. Которые благоприятны к здоровью человека</p>
+                    </div>
+                    <div class="components-item">
+                        <img src="img/components-item-icon2.png" alt="">
+                        <p>Фирменная упаковка</p>
+                    </div>
+                    <div class="components-item">
+                        <img src="img/components-item-icon3.png" alt="">
+                        <p>Галерейная натяжка холста на деревянный подрамник</p>
+                    </div>
+                    <div class="components-item">
+                        <img src="img/components-item-icon4.png" alt="">
+                        <p>Художественный лак, защищающий холст от пыли и выгорания. Придаёт цветам глубины и насыщенности.</p>
+                    </div>
+                    <div class="components-item">
+                        <img src="img/components-item-icon5.png" alt="">
+                        <p>Талантливые художники и дизайнеры. Вы можете рассчитывать на нашу помощь и профессиональный совет. </p>
+                    </div>
+                    <div class="components-item">
+                        <img src="img/components-item-icon6.png" alt="">
+                        <p>Холст повторяет текстуру натурального холста с приятным внешнем видом.</p>
+                    </div>
+                    <div class="components-item">
+                        <img src="img/components-item-icon7.png" alt="">
+                        <p>Самый удобный набор инструментов для создания картины</p>
+                    </div>
+                    <div class="components-item">
+                        <img src="img/components-item-icon8.png" alt="">
+                        <p>На наших работах видны мельчайшие детали рисунка, четкость линий и световые переходы</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content clearfix">
+                <a class="logo" href="index.html"><img src="img/footer-logo.png" alt=""></a>
+                <nav>
+                    <ul>
+                        <li><a href="gallery-photo-catalog.html">Фото картины на холсте</a></li>
+                        <li><a href="collage.html">Коллажи</a></li>
+                        <li><a href="modular-pictures.html">Модульные картины</a></li>
+                        <li><a href="gallery.html">Галерея</a></li>
+                        <li><a href="javascript:void(0)">Электронная живопись</a></li>
+                        <li><a href="about.html">О VIARART</a></li>
+                        <li><a href="gift-card.html">Подарочная карта</a></li>
+                        <li><a href="javascript:void(0)">Идеи</a></li>
+                        <li><a href="stocks.html">Скидки</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="javascript:void(0)">Реквизиты</a></li>
+                        <li><a href="terms-sale.html">Условия продажи</a></li>
+                        <li><a href="shipping-payment.html">Доставка и оплата</a></li>
+                        <li><a href="partnership.html">Партнёрство</a></li>
+                        <li><a href="javascript:void(0)">Благотворительность</a></li>
+                    </ul>
+                </nav>
+                <div class="tel-sosial clearfix">
+                    <a href="javascript:void(0)" class="discount">
+                        <img src="img/discount-img.png" alt="">
+                        <span><i>%</i></span>
+                    </a>
+                    <div class="tel">
+                        <p>Звонки по России бесплатно</p>
+                        <a href="tel:88007789898">8(800) 778 98 98</a>
+                    </div>
+                    <div class="facebook">
+                        <a href="javascript:void(0)"></a>
+                        <img src="img/facebook-banner.png" alt="">
+                        <p>
+                            опубликуйте пост и получите
+                            <span>Скидку</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="js/jquery.matchHeight.min.js"></script>
+    <script src="js/jcf.min.js"></script>
+    <script src="js/jcf.file.min.js"></script>
+    <script src="js/jcf.radio.min.js"></script>
+    <script src="js/jcf.checkbox.min.js"></script>
+    <script src="js/jcf.range.min.js"></script>
+    <script src="js/jquery.collapse_storage.min.js"></script>
+    <script src="js/jquery.collapse.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/script.min.js"></script>
+    <script type="text/javascript" src="js/m3.js"></script>
+    <script type="text/javascript" src="js/PhotoEditor.js?v2"></script>
+    <script src="js/collage-constructor.min.js"></script>
+
+    <script> 
+        var lang={
+            tooSmall: 'Выбирите картинку не меньше $*$!',
+            notSupport: 'Не поддерживаемый формат изображения!'
+        };
+        var maxW=3000; // слишком большие картинки ужимаем до этого размера, чтоб не тормозило
+
+        var editor = new PhotoEditor(document.getElementById("canvas"));
+        
+        editor.onchange = function(){//ловим изменения в редакторе
+            
+            if (editor.selection && editor.selection.cell)
+            {
+                //выделена ячейка	
+               
+                if (editor.selection.cell.resource) 
+                {
+                    // в ячейке есть фото 
+                
+                }
+                
+                
+            }
+                
+                
+        }
+     
+        editor.enable_drawing();// включить рисование. editor.disable_drawing(); отключить
+      
+        editor.radius = 5; //округлить углы ячеек
+        editor.between = 0.01;// между ячейками, применяется для каждой, 1.0 равно всему размеру области
+    
+        function InitImg(element, type)
+        {
+            element.onerror=function(){alert(lang.notSupport)};
+            element.onload=function() {
+                var w=this.naturalWidth,
+                    h=this.naturalHeight,
+                    hw=h/w;
+                
+                if (h>maxW || w>maxW) { // resize image to maxW
+                    URL.revokeObjectURL(this.src);
+                    var w0=Math.min(maxW, maxW/hw),
+                        h0=Math.min(maxW, maxW*hw),
+                        canvas = $('<canvas>').prop({width: w0, height: h0})[0],
+                        ctx=canvas.getContext('2d');
+                    ctx.drawImage(this, 0, 0, w0, h0);
+                    canvas.toBlob(function(blob){
+                        element.src=URL.createObjectURL(blob)
+                    })
+                } else {
+                    this.parentNode.style.background='url('
+                     +this.src+') center / cover';
+                }
+            }
+            element.parentNode.onclick = function()
+            {
+                var inputFile = document.createElement('input');
+                inputFile.type='file';
+                inputFile.accept='image/*';
+                inputFile.onchange = function() {
+
+                    var file=this.files[0];
+
+                    if (!file)  return;
+                    element.src=URL.createObjectURL(file);
+                 //           element.style = 'width: 100%; height: 100%; margin-left: 10px;'
+                }
+        
+                inputFile.click();
+        
+            }
+            element.onmousedown = function()
+            {
+                return false;	
+            }
+        
+            DragAndDrop_img(element,type);// активировать DragAndDrop у картинки 
+        }
+  
+        var imgs = $('#imgs img').each(function(i){
+            InitImg(this, "img");
+        })
+        
+        var backgrounds = document.getElementById("backgrounds").getElementsByTagName('img');
+
+        for (let img of backgrounds) {InitImg(img,"background");}
+           
+        document.getElementById("add_vertical").onclick = function()
+        {
+            if (editor.selection){editor.selection.cell.add_vertical(true/*сверху*/,true/*анимировать*/);
+            }else
+            {
+                alert("Ячейка не выбрана!");	
+            }
+        }
+       
+        document.getElementById("add_horizontal").onclick = function()
+        {
+            if (editor.selection){editor.selection.cell.add_horizontal(true/*слева*/,true/*анимировать*/);
+            }else
+            {
+                alert("Ячейка не выбрана!");	
+            }
+            
+        }
+
+        $('body').on('click','.btt-template-1', function(){
+            editor.open_template("W3sicDEiOnsieCI6MC41LCJ5IjowLjY2NjY2NjY2NjY2NjY2NjZ9LCJwMiI6eyJ4IjoxLCJ5IjoxfX0seyJwMSI6eyJ4IjowLCJ5IjowLjY2NjY2NjY2NjY2NjY2NjZ9LCJwMiI6eyJ4IjowLjUsInkiOjF9fSx7InAxIjp7IngiOjAsInkiOjAuMzMzMzMzMzMzMzMzMzMzM30sInAyIjp7IngiOjAuMzMzMzMzMzMzMzMzMzMzMywieSI6MC42NjY2NjY2NjY2NjY2NjY2fX0seyJwMSI6eyJ4IjowLCJ5IjowfSwicDIiOnsieCI6MC41LCJ5IjowLjMzMzMzMzMzMzMzMzMzMzN9fSx7InAxIjp7IngiOjAuNSwieSI6MH0sInAyIjp7IngiOjEsInkiOjAuMzMzMzMzMzMzMzMzMzMzM319LHsicDEiOnsieCI6MC42NjY2NjY2NjY2NjY2NjY2LCJ5IjowLjMzMzMzMzMzMzMzMzMzMzN9LCJwMiI6eyJ4IjoxLCJ5IjowLjY2NjY2NjY2NjY2NjY2NjZ9fSx7InAxIjp7IngiOjAuMzMzMzMzMzMzMzMzMzMzMywieSI6MC4zMzMzMzMzMzMzMzMzMzMzfSwicDIiOnsieCI6MC42NjY2NjY2NjY2NjY2NjY2LCJ5IjowLjY2NjY2NjY2NjY2NjY2NjZ9fV0=");
+
+            return false
+        })
+
+        $('body').on('click','.btt-template-2', function(){
+            editor.open_template('W3sicDEiOnsieCI6MC41LCJ5IjowLjV9LCJwMiI6eyJ4IjoxLCJ5IjoxfX0seyJwMSI6eyJ4IjowLCJ5IjowfSwicDIiOnsieCI6MC41LCJ5IjoxfX0seyJwMSI6eyJ4IjowLjUsInkiOjB9LCJwMiI6eyJ4IjoxLCJ5IjowLjV9fV0=');
+
+            return false
+        })
+        
+        document.getElementById("save_template").onclick = function()
+        {
+            var str = editor.save_template();	//сохранить шаблон
+            console.log("editor.open_template('"+str+"');");	
+        }
+
+        document.getElementById("clear").onclick = function()
+        {
+            editor.clear();//очистить
+        }
+           
+        document.getElementById("cell_delete").onclick = function()
+        {
+            
+            if (editor.selection){editor.selection.delete();
+            }else
+            {
+                alert("Ячейка не выбрана!");	
+            }
+        }
+        
+        
+        document.getElementById("photo_zoom_minus").onclick = function()
+        {    	
+            if (editor.selection){
+            
+                if (editor.selection.cell.resource)
+                {
+                
+                    editor.selection.cell.photo_zoom(Math.max(1, editor.selection.cell.resource.zoom - (editor.selection.cell.resource.zoom * 0.1)));	
+            
+                
+                }else
+                alert("в ячейке нет фото");
+            
+            
+            
+            }else
+            {
+                alert("Ячейка не выбрана!");	
+            }
+        }
+       
+       
+        document.getElementById("photo_zoom_plus").onclick = function()
+        {    	
+            if (editor.selection){
+            
+                if (editor.selection.cell.resource)
+                {
+                
+                    editor.selection.cell.photo_zoom(editor.selection.cell.resource.zoom + (editor.selection.cell.resource.zoom * 0.1));	
+            
+            
+            
+                
+                }else
+                alert("в ячейке нет фото");
+            
+            
+            
+            }else
+            {
+                alert("Ячейка не выбрана!");	
+            }
+        }
+       
+       
+        document.getElementById("turn_right").onclick = function()
+        {    	
+            if (editor.selection){
+            
+                if (editor.selection.cell.resource)
+                {
+                
+                    editor.selection.cell.photo_rotate(editor.selection.cell.resource.rotate + Math.PI/2);	
+            
+                }else
+                alert("в ячейке нет фото");
+            
+            
+            
+            }else
+            {
+                alert("Ячейка не выбрана!");	
+            }
+        }	
+         
+         
+        document.getElementById("left_turn").onclick = function()
+        {    	
+            if (editor.selection){
+            
+                if (editor.selection.cell.resource)
+                {
+                
+                    editor.selection.cell.photo_rotate(editor.selection.cell.resource.rotate - Math.PI/2);	
+            
+                }else
+                alert("в ячейке нет фото");
+            
+            
+            
+            }else
+            {
+                alert("Ячейка не выбрана!");	
+            }
+        }	
+            
+        document.getElementById("invert_x").onclick = function()
+        {    	
+            if (editor.selection){
+            
+                if (editor.selection.cell.resource)
+                {
+                
+                    editor.selection.cell.photo_invert_x(!editor.selection.cell.resource.invert_x);	
+            
+                }else
+                alert("в ячейке нет фото");
+            
+            
+            
+            }else
+            {
+                alert("Ячейка не выбрана!");	
+            }
+        }	  
+         
+         
+        document.getElementById("invert_y").onclick = function()
+        {    	
+            if (editor.selection){
+            
+                if (editor.selection.cell.resource)
+                {
+                
+                    editor.selection.cell.photo_invert_y(!editor.selection.cell.resource.invert_y);	
+            
+                }else
+                alert("в ячейке нет фото");
+            
+            
+            
+            }else
+            {
+                alert("Ячейка не выбрана!");	
+            }
+        }		
+
+        document.getElementById("delete_background").onclick = function()
+        { 
+            editor.Background = undefined;
+        }  
+        
+        document.getElementById("Undo").onclick = function()
+        { 
+         
+        }
+        
+        
+        
+        document.getElementById("loadPhotos_1").onclick = function()
+        {
+            var imgs = document.getElementById("imgs").getElementsByTagName('img');
+            var srcs = [];
+        
+            for (let img of imgs) {
+                if (img.src !== "")
+                srcs.push(img.src);
+            }
+            
+            
+            
+            editor.loadPhotos(srcs,false/*рандомно*/,false/*сравнивать соотношения размера*/,false/*развернуть фото по размеру*/);
+            
+        }
+        
+        document.getElementById("loadPhotos_2").onclick = function()
+        {
+            var imgs = document.getElementById("imgs").getElementsByTagName('img');
+            var srcs = [];
+        
+            for (let img of imgs) {
+                if (img.src !== "")
+                srcs.push(img.src);
+            }
+            
+            
+            
+            editor.loadPhotos(srcs,true/*рандомно*/,false/*сравнивать соотношения размера*/,false/*развернуть фото по размеру*/);
+            
+        }
+        
+        
+        document.getElementById("loadPhotos_3").onclick = function()
+        {
+            var imgs = document.getElementById("imgs").getElementsByTagName('img');
+            var srcs = [];
+        
+            for (let img of imgs) {
+                if (img.src !== "")
+                srcs.push(img.src);
+            }
+            
+            
+            
+            editor.loadPhotos(srcs,false/*рандомно*/,true/*сравнивать соотношения размера*/,false/*развернуть фото по размеру*/);
+            
+        }
+        
+        document.getElementById("loadPhotos_4").onclick = function()
+        {
+            var imgs = document.getElementById("imgs").getElementsByTagName('img');
+            var srcs = [];
+        
+            for (let img of imgs) {
+                if (img.src !== "")
+                srcs.push(img.src);
+            }
+            
+            
+            
+            editor.loadPhotos(srcs,false/*рандомно*/,false/*сравнивать соотношения размера*/,true/*развернуть фото по размеру*/);
+            
+        }
+        
+        document.getElementById("out").onclick = function()
+        {//важно! изображения которые используются в редакторе не должны нарушать права 
+            var img = document.createElement("img");
+            img.src = editor.out(/*width,height можно указать желаемый размер*/);
+            document.body.appendChild(img);
+        }
+        
+        
+        
+             
+  
+  
+    </script>
+</body>
+
+</html>
