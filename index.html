@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VIAR</title>
+    <meta name="cmsmagazine" content="5a7189a28fb3dc68238dbdb44c9ea99c" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="popup-login-registration popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Вход / Регистрация</h3>
+                <ul>
+                    <li><a class="login" href="javascript:void(0)"><span>Войти</span></a></li>
+                    <li><a class="registration" href="javascript:void(0)"><span>зарегистрироваться</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="popup-registration popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Регистрация</h3>
+                <form action="">
+                    <div class="input">
+                        <label>Электронная почта</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Пароль</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Повторить пароль</label>
+                        <input type="text">
+                    </div>
+                    <div class="invited">
+                        <p class="invited_js">Меня пригласил друг</p>
+                        <div class="input">
+                            <label>Введите код приглашения</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <button><span>ПОдтвердить</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-login popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Вход в личный кабинет</h3>
+                <form action="">
+                    <div class="input">
+                        <label>Электронная почта</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Пароль</label>
+                        <input type="text">
+                    </div>
+                    <p class="forgotYour_js">Забыли пароль?</p>
+                    <button><span>Войти</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-forgotYour popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Восстановление пароля</h3>
+                <form action="">
+                    <div class="input">
+                        <label>Электронная почта</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Новый пароль</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Повторите новый пароль</label>
+                        <input type="text">
+                    </div>
+                    <button><span>Подтвердить</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-dates popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Введите две даты</h3>
+                <p>Напишите даты Ваших друзей, родственников, праздников и за 10 дней получите предложение со скидкой на один из наших товаров. </p>
+                <strong><i>*</i> Условия акции: - Акция вступает в силу через 2 месяца, после полученной информации. </strong>
+                <form action="">
+                    <div class="date">
+                        <div class="input">
+                            <input type="text" placeholder="Выберите первую дату">
+                            <input type="text" placeholder="Напиишите торжество">
+                        </div>
+                        <div class="input">
+                            <input type="text" placeholder="Выберите вторую дату">
+                            <input type="text" placeholder="Напишите торжество">
+                        </div>
+                    </div>
+                    <button><span>Принять</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-lnvite-friend popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Пригласи друга</h3>
+                <p>Сгенерируйте код купона для приглашения и Вам зачислятся денежные бонусы</p>
+                <form action="">
+                    <div class="date">
+                        <input type="text" placeholder="">
+                    </div>
+                    <button><span>Копировать код</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-print-screen popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Пришлите PrintScreen</h3>
+                <p>Публикация на Facebook о нашем сайте дает <strong>скидку 2%</strong></p>
+                <form action="">
+                    <div class="file">
+                        <input type="file">
+                    </div>
+                    <button><span>загрузить</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-photo popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Пришлите качественное фото с нашей картиной</h3>
+                <p>После отправки фото с Вами свяжется <strong>Наш менеджер</strong></p>
+                <strong><i>*</i>Условия акции: Акция действует один раз в год, после оформления заказа.</strong>
+                <form action="">
+                    <div class="file">
+                        <input type="file">
+                    </div>
+                    <button><span>загрузить</span></button>
+                </form>
+            </div>
+        </div>
+
+        <header>
+            <div class="header-content clearfix">
+                <div class="menu-logo">
+                    <a href="index.html" class="logo"><img src="img/logo.png" alt=""></a>
+                    <span class="open-menu">
+                <span></span>
+                    </span>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">Услуги</a>
+                                <ul>
+                                    <li><a href="canvas.html">Фото картины и композиции</a></li>
+                                    <li><a href="collage.html">Фото Коллажи</a></li>
+                                    <li><a href="modular-pictures.html">Модульные картины</a></li>
+                                    <li><a href="gallery.html">Галерея картин</a></li>
+                                    <li><a href="graphic-portrait.html">Графический портрет</a></li>
+                                    <li><a href="stylization-paintings.html">Стилизация</a></li>
+                                    <li><a href="oil-portrait.html">Картины маслом</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="gallery.html">Галерея</a>
+                                <ul>
+                                    <li><a href="gallery-modular.html">Модульные картины</a></li>
+                                    <li><a href="gallery-photo.html">Фото картины</a></li>
+                                    <li><a href="gallery-reproductions.html">Репродукции</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="about.html">О ViarCanvas</a></li>
+                            <li><a href="gift-card.html">Подарочная карта</a></li>
+                            <li><a href="blog.html">Идеи</a></li>
+                        </ul>
+                    </nav>
+                    <a href="stocks.html" class="discount">
+                        <img src="img/discount-img.png" alt="">
+                        <span><i>%</i></span>
+                    </a>
+                </div>
+                <div class="office-basket-transfer">
+                    <a href="personal-area.html" class="office"><i class="icon-icon31"></i><strong>Личный кабинет</strong></a>
+                    <!-- personal-area.html -->
+                    <a href="basket.html" class="basket"><i class="icon-icon11"></i><strong>Корзина</strong><span>5</span></a>
+                    <ul class="transfer">
+                        <li>
+                            <a href="javascript:void(0)"><img src="img/transfer-img1.png" alt=""> Ru</a>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="img/transfer-img2.png" alt=""> En</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="img/transfer-img3.png" alt=""> Lv</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="img/transfer-img4.png" alt=""> Ee</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="img/transfer-img5.png" alt=""> Lt</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <section class="banner">
+            <span class="banner-ground1"></span>
+            <span class="banner-ground2"></span>
+            <div class="banner-slider">
+                <div class="banner-item clearfix" style="background: url('img/banner-bg.png') no-repeat 20% 50%; background-size: cover;"></div>
+                <div class="banner-item clearfix" style="background: url('img/banner-bg.png') no-repeat 20% 50%; background-size: cover;"></div>
+                <div class="banner-item clearfix" style="background: url('img/banner-bg.png') no-repeat 20% 50%; background-size: cover;"></div>
+                <div class="banner-item clearfix" style="background: url('img/banner-bg.png') no-repeat 20% 50%; background-size: cover;"></div>
+            </div>
+            <div class="banner-content clearfix">
+                <div class="slider-text">
+                    <div class="img">
+                        <span class="banner-ground3"></span>
+                        <img src="img/banner-img.png" alt="">
+                    </div>
+                    <img src="img/brush.png" alt="" class="banner-text">
+                    <p>Modern Art Studio</p>
+                </div>
+            </div>
+            <div class="facebook-banner">
+                <a href="https://facebook.com"></a>
+                <img src="img/facebook-banner.png" alt="">
+                <p>
+                    опубликуйте пост и получите
+                    <span>Скидку</span>
+                </p>
+            </div>
+            <div class="foto-slider">
+                <div class="foto-item" style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                    <a href="canvas.html"></a>
+                    <img src="img/foto-img1.png" alt="" class="foto-item1">
+                    <img src="img/foto-img2.png" alt="" class="foto-item2">
+                    <h3>фотокартины и композиции</h3>
+                </div>
+                <div class="foto-item" style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                    <a href="collage.html"></a>
+                    <img src="img/foto-img3.png" alt="" class="foto-item3">
+                    <img src="img/foto-img4.png" alt="" class="foto-item4">
+                    <h3>коллажи</h3>
+                </div>
+                <div class="foto-item" style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                    <a href="modular-pictures.html"></a>
+                    <h3>модульные картины</h3>
+                    <img src="img/foto-img5.png" alt="" class="foto-item5">
+                    <img src="img/foto-img6.png" alt="" class="foto-item6">
+                </div>
+                <div class="foto-item" style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                    <a href="gallery.html"></a>
+                    <img src="img/foto-img7.png" alt="" class="foto-item7">
+                    <img src="img/foto-img8.png" alt="" class="foto-item8">
+                    <h3>готовые картины</h3>
+                </div>
+                <div class="foto-item" style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                    <a href="graphic-portrait.html"></a>
+                    <img src="img/foto-img9.png" alt="" class="foto-item9">
+                    <img src="img/foto-img10.png" alt="" class="foto-item10">
+                    <h3>электронная живопись</h3>
+                </div>
+                <div class="foto-item" style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                    <a href="canvas.html"></a>
+                    <img src="img/foto-img1.png" alt="" class="foto-item1">
+                    <img src="img/foto-img2.png" alt="" class="foto-item2">
+                    <h3>фотокартины и композиции</h3>
+                </div>
+                <div class="foto-item" style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                    <a href="collage.html"></a>
+                    <img src="img/foto-img3.png" alt="" class="foto-item3">
+                    <img src="img/foto-img4.png" alt="" class="foto-item4">
+                    <h3>коллажи</h3>
+                </div>
+                <div class="foto-item" style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                    <a href="modular-pictures.html"></a>
+                    <h3>модульные картины</h3>
+                    <img src="img/foto-img5.png" alt="" class="foto-item5">
+                    <img src="img/foto-img6.png" alt="" class="foto-item6">
+                </div>
+                <div class="foto-item" style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                    <a href="gallery.html"></a>
+                    <img src="img/foto-img7.png" alt="" class="foto-item7">
+                    <img src="img/foto-img8.png" alt="" class="foto-item8">
+                    <h3>готовые картины</h3>
+                </div>
+                <div class="foto-item" style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                    <a href="graphic-portrait.html"></a>
+                    <img src="img/foto-img9.png" alt="" class="foto-item9">
+                    <img src="img/foto-img10.png" alt="" class="foto-item10">
+                    <h3>электронная живопись</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="foto clearfix">
+            <img src="img/foto-content-img1.png" alt="" class="foto-content-img1">
+            <div class="foto-content clearfix">
+                <div class="foto-text">
+                    <div class="title">
+                        <h2>Фото картины и Композиции</h2>
+                    </div>
+                    <p>* Краткое описание Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a href="canvas.html"><span>Заказать!</span></a>
+                </div>
+            </div>
+            <img src="img/foto-content-img2.png" alt="" class="foto-content-img2">
+        </section>
+
+        <section class="collages">
+            <div class="clearfix">
+                <img src="img/collages-content-img1.png" alt="" class="collages-content-img1">
+                <div class="collages-content clearfix">
+                    <div class="collages-text">
+                        <div class="title">
+                            <h2>Коллажи</h2>
+                            <h4>создай свое настроение</h4>
+                        </div>
+                        <p>* Краткое описание Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                        <a href="collage.html"><span>Заказать!</span></a>
+                        <div class="generator">
+                            <span>Сгенерируйте свой коллаж</span>
+                            <i>!</i>
+                            <img src="img/generator-icon.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <img src="img/collages-content-img2.png" alt="" class="collages-content-img2">
+            </div>
+        </section>
+
+        <section class="pictures clearfix">
+            <img src="img/pictures-content-img1.png" alt="" class="pictures-content-img1">
+            <div class="pictures-content clearfix">
+                <div class="pictures-text">
+                    <div class="title">
+                        <h2>Модульные картины</h2>
+                        <h4>текст подзаголовка</h4>
+                    </div>
+                    <p>* Краткое описание Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <a href=" modular-pictures.html"><span>создать картину!</span></a>
+                </div>
+            </div>
+            <img src="img/pictures-content-img2.png" alt="" class="pictures-content-img2">
+        </section>
+
+        <section class="gallery">
+            <div class="clearfix">
+                <img src="img/gallery-content-img2.png" alt="" class="gallery-content-img2">
+                <div class="gallery-content clearfix">
+                    <div class="gallery-text">
+                        <div class="title">
+                            <h2>галерея картин</h2>
+                            <h4>текст подзаголовка</h4>
+                        </div>
+                        <p>* Краткое описание Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                        <a href="gallery.html"><span>Заказать!</span></a>
+                    </div>
+                </div>
+                <img src="img/gallery-content-img1.png" alt="" class="gallery-content-img1">
+            </div>
+        </section>
+
+        <section class="portrait clearfix">
+            <img src="img/portrait-content-img2.png" alt="" class="portrait-content-img2">
+            <div class="portrait-content clearfix">
+                <div class="portrait-text">
+                    <div class="title">
+                        <h2>Графический портрет</h2>
+                    </div>
+                    <p>* Краткое описание Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <a href="graphic-portrait.html"><span>Смотреть каталог</span></a>
+                </div>
+            </div>
+            <img src="img/portrait-content-img1.png" alt="" class="portrait-content-img1">
+        </section>
+
+        <section class="stylization">
+            <div class="clearfix">
+                <img src="img/stylization-content-img1.png" alt="" class="stylization-content-img1">
+                <div class="stylization-content clearfix">
+                    <div class="stylization-text">
+                        <div class="title">
+                            <h2>Стилизация</h2>
+                            <h4>создай свой образ</h4>
+                        </div>
+                        <p>* Краткое описание Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                        <a href="stylization-paintings.html"><span>Смотреть каталог</span></a>
+                    </div>
+                </div>
+                <img src="img/stylization-content-img2.png" alt="" class="stylization-content-img2">
+            </div>
+        </section>
+
+        <section class="oiled clearfix">
+            <img src="img/oiled-content-img2.png" alt="" class="oiled-content-img2">
+            <div class="oiled-content clearfix">
+                <div class="oiled-text">
+                    <div class="title">
+                        <h2>Картины маслом</h2>
+                        <h4>текст подзаголовка</h4>
+                    </div>
+                    <p>* Краткое описание Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <a href="oil-portrait.html"><span>Заказать!</span></a>
+                </div>
+            </div>
+            <img src="img/oiled-content-img1.png" alt="" class="oiled-content-img1">
+        </section>
+
+        <footer>
+            <div class="footer-content clearfix">
+                <a class="logo" href="index.html"><img src="img/footer-logo.png" alt=""></a>
+                <nav>
+                    <ul>
+                        <li><a href="gallery-photo-catalog.html">Фото картины на холсте</a></li>
+                        <li><a href="collage.html">Коллажи</a></li>
+                        <li><a href="modular-pictures.html">Модульные картины</a></li>
+                        <li><a href="gallery.html">Галерея</a></li>
+                        <li><a href="graphic-portrait.html">Электронная живопись</a></li>
+                        <li><a href="about.html">О VIARART</a></li>
+                        <li><a href="gift-card.html">Подарочная карта</a></li>
+                        <li><a href="blog.html">Идеи</a></li>
+                        <li><a href="stocks.html">Скидки</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="contacts.html">Реквизиты</a></li>
+                        <li><a href="terms-sale.html">Условия продажи</a></li>
+                        <li><a href="shipping-payment.html">Доставка и оплата</a></li>
+                        <li><a href="partnership.html">Партнёрство</a></li>
+                        <li><a href="faq.html">Вопросы и ответы</a></li>
+                    </ul>
+                </nav>
+                <div class="tel-sosial clearfix">
+                    <a href="stocks.html" class="discount">
+                        <img src="img/discount-img.png" alt="">
+                        <span><i>%</i></span>
+                    </a>
+                    <div class="tel">
+                        <!-- <p>Звонки по России бесплатно</p> -->
+                        <a href="contacts.html">+371 25444744</a>
+                    </div>
+                    <div class="facebook">
+                        <a href="https://facebook.com"></a>
+                        <img src="img/facebook-banner.png" alt="">
+                        <p>
+                            опубликуйте пост и получите
+                            <span>Скидку</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/script.min.js"></script>
+    <script src="js/home.min.js"></script>
+</body>
+
+</html>
