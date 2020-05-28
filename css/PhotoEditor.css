@@ -19,61 +19,35 @@
 }
 
 .DragAndDrop
-{   
+{
     position: fixed;
-	margin-left: -20px;
-	margin-top: -20px;
-	height: 40px; 
-	width: 40px;	
-	pointer-events: none;
-	object-fit: cover;
-	opacity: .7;
-	-moz-animation-name: DragAndDrop;
-	-moz-animation-duration: 1.2s;
-	-webkit-animation-name: DragAndDrop;
-	-webkit-animation-duration: .2s;
-	-moz-animation-timing-function: linear;
-	-moz-animation-iteration-count: 1;
-	-moz-animation-direction: normal;
-	-moz-animation-delay: 0;
-	-moz-animation-play-state: running;
-	-moz-animation-fill-mode: forwards;
-	-webkit-animation-timing-function: linear;
-	-webkit-animation-iteration-count: 1;
-	-webkit-animation-direction: normal;
-	-webkit-animation-delay: 0;
-	-webkit-animation-play-state: running;
-	-webkit-animation-fill-mode: forwards;
+    margin-left: -60px;
+    margin-top: -60px;
+    height: 120px;
+    width: 120px;
+    pointer-events: none;
+    object-fit: cover;
+    opacity: .7;
+    border-radius: 5px;
+    z-index: 1;
+    animation: DragAndDrop .8s cubic-bezier(0.7, -1, 0.4, 1.22);
 }
 
-@-webkit-keyframes DragAndDrop {
+@keyframes DragAndDrop {
 	0% {
-		-moz-transform: scale(1.0);
-		-webkit-transform: scale(1.0);
+		transform: scale(.3);
+		opacity: 0;
 	}
 	100% {
-		-moz-transform: scale(3.0);
-		-webkit-transform: scale(3.0);
+		transform: scale(1);
 	}
 }
-@-moz-keyframes DragAndDrop {
-	0% {
-	-moz-transform: scale(1.0);
-	-webkit-transform: scale(1.0);
-}
-100% {
-	-moz-transform: scale(3.0);
-	-webkit-transform: scale(3.0);
-}
-}
 
 
 
-.PhotoEditor_canvas
-{
--moz-user-select: none;
--khtml-user-select: none;
-user-select: none; 	
+.PhotoEditor_canvas{
+	user-select: none;
+	max-width: calc(100% - 40px);
 }
 
 .PhotoEditor_row-resize{
