@@ -302,69 +302,29 @@
                         </div>
                         <div class="photo-filter">
                             <div class="filter-picture tabs-item tabs-item1 active">
-                                <form>
+                                <form onsubmit="return false">
                                     <div class="filter-accordion">
-                                        <h2 class="accordion-title"><span>1.</span> Выберите <span> Продукт</span></h2>
+                                        <h2 class="accordion-title open"><span>1.</span> Выберите <span> Продукт</span></h2>
                                         <div class="accordion-content">
-                                            <div class="product-download">
-<table id="imgs" style="width: 100%;">
-			<tbody>
-				<tr>
-					<td><img src="" width="125" height="80"></td>
-					<td><img src="" width="125" height="80"></td>
-					<td><img src="" width="125" height="80"></td>
-				</tr>
-				<tr>
-					<td><img src="" width="125" height="80"></td>
-					<td><img src="" width="125" height="80"></td>
-					<td><img src="" width="125" height="80"></td>
-				</tr>
-			</tbody>
-		</table>
-                                            </div>
+                                            <div class="product-download" id="imgs">
+                            					<button><img src=""></button>
+                            					<button><img src=""></button>
+                            					<button><img src=""></button>
+
+                            					<button><img src=""></button>
+                            					<button><img src=""></button>
+                            					<button><img src=""></button>
+                                           </div>
                                         </div>
-                                        <h2 class="accordion-title"><span>2.</span> Выберите <span> Фон</span></h2>
+                                        <h2 class="accordion-title open"><span>2.</span> Выберите <span> Фон</span></h2>
                                         <div class="accordion-content">
-                                            <div class="product-download">
-		<table id="backgrounds" style="width: 100%;">
-			<tbody>
-				<tr>
-					<td><img height="80"  width="125" src=""/></td>
-					<td><img height="80"  width="125" /></td>
-					<td><img height="80"  width="125" /></td>
-				</tr>
-			</tbody>
-		</table>
-                                            </div>
+                                            <div class="product-download" id="backgrounds">
+                            					<button><img height="80"  width="125" src=""/></button>
+                            					<button><img height="80"  width="125" /></button>
+                            					<button><img height="80"  width="125" /></button>
+                                           </div>
                                         </div>
-                                        <!-- <h2 class="accordion&#45;title open"><b>Инструментарий</b></h2> -->
-                                        <!-- <div class="accordion&#45;content"> -->
-                                        <!--     <div class="size"> -->
-                                        <!--  -->
-                                        <!--         <input type="button" id="add_vertical" value="Добавить вертикально"/><br /><br /> -->
-                                        <!--         <input type="button" id="add_horizontal" value="Добавить горизонтально"/><br /><br /> -->
-                                        <!--        -->
-                                        <!--         <input type="button" id="save_template" value="сохранить шаблон в консоль"/><br /><br /> -->
-                                        <!--        -->
-                                        <!--        -->
-                                        <!--          -->
-                                        <!--          -->
-                                        <!--          -->
-                                        <!--          -->
-                                        <!--          -->
-                                        <!--         <input type="button" id="invert_x" value="отразить по X"/><br /><br /> -->
-                                        <!--         <input type="button" id="invert_y" value="отразить по Y"/><br /><br /> -->
-                                        <!--          -->
-                                        <!--          -->
-                                        <!--         <input type="button" id="Undo" value="Undo"/><br /><br /> -->
-                                        <!--         <input type="button" id="Redo" value="Redo"/><br /><br /> -->
-                                        <!--          -->
-                                        <!--         <input type="button" id="loadPhotos_1" value="Загрузить все фото по порядку"/><br /><br /> -->
-                                        <!--         <input type="button" id="loadPhotos_2" value="Загрузить все фото по рандому"/><br /><br /> -->
-                                        <!--         <input type="button" id="loadPhotos_3" value="Загрузить все фото по размеру"/><br /><br /> -->
-                                        <!--         <input type="button" id="out" value="out"/> -->
-                                        <!--     </div> -->
-                                        <!-- </div> -->
+
                                         <h2 class="accordion-title open"><span>3.</span> Выберите <span>Форму</span></h2>
                                         <div class="accordion-content">
                                             <div class="collage-shapes">
@@ -439,7 +399,7 @@
                                         <div class="sum">
                                             <h4>112 &euro;</h4>
                                         </div>
-                                        <a href="javascript:void(0)" onClick="location.href=''"><span>Заказать!</span></a>
+                                        <a href="javascript:void(0)"><span>Заказать!</span></a>
                                         <ul>
                                             <li><strong>Срок изготовления:</strong></li>
                                             <li>Стандарт - 3 рабочих дня</li>
@@ -843,6 +803,12 @@
     <script src="js/collage-constructor.min.js"></script>
 
     <script> 
+        var lang={
+            tooSmall: 'Выбирите картинку не меньше $*$!',
+            notSupport: 'Не поддерживаемый формат изображения!'
+        };
+        var maxW=3000; // слишком большие картинки ужимаем до этого размера, чтоб не тормозило
+
         var editor = new PhotoEditor(document.getElementById("canvas"));
         
         editor.onchange = function(){//ловим изменения в редакторе
@@ -868,26 +834,41 @@
         editor.radius = 5; //округлить углы ячеек
         editor.between = 0.01;// между ячейками, применяется для каждой, 1.0 равно всему размеру области
     
-        function InitImg(element,type)
+        function InitImg(element, type)
         {
-            element.onclick = function()
+            element.onerror=function(){alert(lang.notSupport)};
+            element.onload=function() {
+                var w=this.naturalWidth,
+                    h=this.naturalHeight,
+                    hw=h/w;
+                
+                if (h>maxW || w>maxW) { // resize image to maxW
+                    URL.revokeObjectURL(this.src);
+                    var w0=Math.min(maxW, maxW/hw),
+                        h0=Math.min(maxW, maxW*hw),
+                        canvas = $('<canvas>').prop({width: w0, height: h0})[0],
+                        ctx=canvas.getContext('2d');
+                    ctx.drawImage(this, 0, 0, w0, h0);
+                    canvas.toBlob(function(blob){
+                        element.src=URL.createObjectURL(blob)
+                    })
+                } else {
+                    this.parentNode.style.background='url('
+                     +this.src+') center / cover';
+                }
+            }
+            element.parentNode.onclick = function()
             {
                 var inputFile = document.createElement('input');
-                inputFile.setAttribute('type', 'file');
-                inputFile.onchange = function()
-                {
-                    if (inputFile.files && inputFile.files[0]) {	
-        
-                        var reader = new FileReader();
+                inputFile.type='file';
+                inputFile.accept='image/*';
+                inputFile.onchange = function() {
 
-                        reader.onload = function (e){
-                            element.src = e.target.result;
-                 //           element.style = 'width: 100%; height: 100%; margin-left: 10px;'
-                        
-                        }
+                    var file=this.files[0];
 
-                        reader.readAsDataURL(inputFile.files[0]);
-                    }	
+                    if (!file)  return;
+                    element.src=URL.createObjectURL(file);
+
                 }
         
                 inputFile.click();
@@ -897,19 +878,17 @@
             {
                 return false;	
             }
-        
+
             DragAndDrop_img(element,type);// активировать DragAndDrop у картинки 
         }
-  
-        var imgs = document.getElementById("imgs").getElementsByTagName('img');
 
-        for (let img of imgs) {
-            InitImg(img,"img");
-        }
-        
-        var backgrounds = document.getElementById("backgrounds").getElementsByTagName('img');
+        var imgs = $('#imgs img').each(function(i){
+            InitImg(this, "img");
+        })
 
-        for (let img of backgrounds) {InitImg(img,"background");}
+        var imgs = $('#imgs img').each(function(i){
+            InitImg(this, "img");
+        })
            
         //document.getElementById("add_vertical").onclick = function()
         //{
@@ -1175,12 +1154,7 @@
  //           img.src = editor.out(/*width,height можно указать желаемый размер*/);
  //           document.body.appendChild(img);
  //       }
-        
-        
-        
-             
-  
-  
+
     </script>
 </body>
 
