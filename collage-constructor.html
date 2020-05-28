@@ -12,6 +12,14 @@
     <link rel="stylesheet" href="css/collage-constructor.css">
 
     <link rel="stylesheet" href="css/PhotoEditor.css?v5">
+    <style>
+        .instrumentariu div{
+            cursor: pointer;
+        } 
+        .instrumentariu div:not(:first-child){
+            margin-top: 12px;
+        } 
+    </style>
 </head>
 
 <body>
@@ -256,67 +264,107 @@
                 <div class="gallery-photo">
                     <div class="photo-content">
                         <div class="slider-tabs">
-                            <canvas width='720' height='500' id='canvas' class="PhotoEditor_canvas"> </canvas>
+                            <canvas width='750' height='500' id='canvas' class="PhotoEditor_canvas"> </canvas>
+                            
+                            <div style="float: right;" class="instrumentariu">
+                                <div id="delete_background">
+                                    <img src="img/collage1.png" width="35" height="35" />        
+                                </div>
+
+                                <div id="clear" >
+                                    <img src="img/collage2.png" width="35" height="35" />        
+                                </div>
+
+                                <div id="photo_zoom_minus">
+                                    <img src="img/collage3.png" width="35" height="35" />        
+                                </div>
+                                
+                                <div id="photo_zoom_plus">
+                                    <img src="img/collage4.png" width="35" height="35" />        
+                                </div>
+
+                                <div id="turn_right">
+                                    <img src="img/collage5.png" width="35" height="35" />        
+                                </div>
+
+                                <div id="left_turn">
+                                    <img src="img/collage6.png" width="35" height="35" />        
+                                </div>
+
+                                <div id="cell_delete">
+                                    <img src="img/collage7.png" width="35" height="35" />        
+                                </div>
+
+                                <div id="loadPhotos_4">
+                                    <img src="img/collage8.png" width="35" height="35" />        
+                                </div>
+                            </div>
                         </div>
                         <div class="photo-filter">
                             <div class="filter-picture tabs-item tabs-item1 active">
-                                <form onsubmit="return false">
+                                <form>
                                     <div class="filter-accordion">
-                                        <h2 class="accordion-title open"><span>1.</span> Выберите <span> Продукт</span></h2>
+                                        <h2 class="accordion-title"><span>1.</span> Выберите <span> Продукт</span></h2>
                                         <div class="accordion-content">
-                                            <div class="product-download" id="imgs">
-                            					<button><img src=""></button>
-                            					<button><img src=""></button>
-                            					<button><img src=""></button>
-
-                            					<button><img src=""></button>
-                            					<button><img src=""></button>
-                            					<button><img src=""></button>
-                                           </div>
-                                        </div>
-                                        <h2 class="accordion-title open"><span>2.</span> Выберите <span> Фон</span></h2>
-                                        <div class="accordion-content">
-                                            <div class="product-download" id="backgrounds">
-                            					<button><img height="80"  width="125" src=""/></button>
-                            					<button><img height="80"  width="125" /></button>
-                            					<button><img height="80"  width="125" /></button>
-                                           </div>
-                                        </div>
-                                        <h2 class="accordion-title open"><b>Инструментарий</b></h2>
-                                        <div class="accordion-content">
-                                            <div class="size">
-                                                <input type="button" id="add_vertical" value="Добавить вертикально"/><br /><br />
-                                                <input type="button" id="add_horizontal" value="Добавить горизонтально"/><br /><br />
-                                                <input type="button" id="photo_zoom_minus" value="-"/><br /><br />
-                                                <input type="button" id="photo_zoom_plus" value="+"/><br /><br />
-                                                <input type="button" id="clear" value="Очистить"/><br /><br />
-                                              
-                                                <input type="button" id="save_template" value="сохранить шаблон в консоль"/><br /><br />
-                                              
-                                              
-                                                <input type="button" id="cell_delete" value="удалить выделенную ячейку"/><br /><br />
-                                                
-                                                
-                                                
-                                                <input type="button" id="left_turn" value="поворот влево"/><br /><br />
-                                                <input type="button" id="turn_right" value="поворот вправо"/><br /><br />
-                                                
-                                                
-                                                <input type="button" id="invert_x" value="отразить по X"/><br /><br />
-                                                <input type="button" id="invert_y" value="отразить по Y"/><br /><br />
-                                                
-                                                <input type="button" id="delete_background" value="удалить фон"/><br /><br />
-                                                
-                                                <input type="button" id="Undo" value="Undo"/><br /><br />
-                                                <input type="button" id="Redo" value="Redo"/><br /><br />
-                                                
-                                                <input type="button" id="loadPhotos_1" value="Загрузить все фото по порядку"/><br /><br />
-                                                <input type="button" id="loadPhotos_2" value="Загрузить все фото по рандому"/><br /><br />
-                                                <input type="button" id="loadPhotos_3" value="Загрузить все фото по размеру"/><br /><br />
-                                                <input type="button" id="loadPhotos_4" value="Загрузить все фото и развернуть по размеру"/>
-                                                <input type="button" id="out" value="out"/>
+                                            <div class="product-download">
+<table id="imgs" style="width: 100%;">
+			<tbody>
+				<tr>
+					<td><img src="" width="125" height="80"></td>
+					<td><img src="" width="125" height="80"></td>
+					<td><img src="" width="125" height="80"></td>
+				</tr>
+				<tr>
+					<td><img src="" width="125" height="80"></td>
+					<td><img src="" width="125" height="80"></td>
+					<td><img src="" width="125" height="80"></td>
+				</tr>
+			</tbody>
+		</table>
                                             </div>
                                         </div>
+                                        <h2 class="accordion-title"><span>2.</span> Выберите <span> Фон</span></h2>
+                                        <div class="accordion-content">
+                                            <div class="product-download">
+		<table id="backgrounds" style="width: 100%;">
+			<tbody>
+				<tr>
+					<td><img height="80"  width="125" src=""/></td>
+					<td><img height="80"  width="125" /></td>
+					<td><img height="80"  width="125" /></td>
+				</tr>
+			</tbody>
+		</table>
+                                            </div>
+                                        </div>
+                                        <!-- <h2 class="accordion&#45;title open"><b>Инструментарий</b></h2> -->
+                                        <!-- <div class="accordion&#45;content"> -->
+                                        <!--     <div class="size"> -->
+                                        <!--  -->
+                                        <!--         <input type="button" id="add_vertical" value="Добавить вертикально"/><br /><br /> -->
+                                        <!--         <input type="button" id="add_horizontal" value="Добавить горизонтально"/><br /><br /> -->
+                                        <!--        -->
+                                        <!--         <input type="button" id="save_template" value="сохранить шаблон в консоль"/><br /><br /> -->
+                                        <!--        -->
+                                        <!--        -->
+                                        <!--          -->
+                                        <!--          -->
+                                        <!--          -->
+                                        <!--          -->
+                                        <!--          -->
+                                        <!--         <input type="button" id="invert_x" value="отразить по X"/><br /><br /> -->
+                                        <!--         <input type="button" id="invert_y" value="отразить по Y"/><br /><br /> -->
+                                        <!--          -->
+                                        <!--          -->
+                                        <!--         <input type="button" id="Undo" value="Undo"/><br /><br /> -->
+                                        <!--         <input type="button" id="Redo" value="Redo"/><br /><br /> -->
+                                        <!--          -->
+                                        <!--         <input type="button" id="loadPhotos_1" value="Загрузить все фото по порядку"/><br /><br /> -->
+                                        <!--         <input type="button" id="loadPhotos_2" value="Загрузить все фото по рандому"/><br /><br /> -->
+                                        <!--         <input type="button" id="loadPhotos_3" value="Загрузить все фото по размеру"/><br /><br /> -->
+                                        <!--         <input type="button" id="out" value="out"/> -->
+                                        <!--     </div> -->
+                                        <!-- </div> -->
                                         <h2 class="accordion-title open"><span>3.</span> Выберите <span>Форму</span></h2>
                                         <div class="accordion-content">
                                             <div class="collage-shapes">
@@ -391,7 +439,7 @@
                                         <div class="sum">
                                             <h4>112 &euro;</h4>
                                         </div>
-                                        <a href="javascript:void(0)"><span>Заказать!</span></a>
+                                        <a href="javascript:void(0)" onClick="location.href=''"><span>Заказать!</span></a>
                                         <ul>
                                             <li><strong>Срок изготовления:</strong></li>
                                             <li>Стандарт - 3 рабочих дня</li>
@@ -795,12 +843,6 @@
     <script src="js/collage-constructor.min.js"></script>
 
     <script> 
-        var lang={
-            tooSmall: 'Выбирите картинку не меньше $*$!',
-            notSupport: 'Не поддерживаемый формат изображения!'
-        };
-        var maxW=3000; // слишком большие картинки ужимаем до этого размера, чтоб не тормозило
-
         var editor = new PhotoEditor(document.getElementById("canvas"));
         
         editor.onchange = function(){//ловим изменения в редакторе
@@ -826,41 +868,26 @@
         editor.radius = 5; //округлить углы ячеек
         editor.between = 0.01;// между ячейками, применяется для каждой, 1.0 равно всему размеру области
     
-        function InitImg(element, type)
+        function InitImg(element,type)
         {
-            element.onerror=function(){alert(lang.notSupport)};
-            element.onload=function() {
-                var w=this.naturalWidth,
-                    h=this.naturalHeight,
-                    hw=h/w;
-                
-                if (h>maxW || w>maxW) { // resize image to maxW
-                    URL.revokeObjectURL(this.src);
-                    var w0=Math.min(maxW, maxW/hw),
-                        h0=Math.min(maxW, maxW*hw),
-                        canvas = $('<canvas>').prop({width: w0, height: h0})[0],
-                        ctx=canvas.getContext('2d');
-                    ctx.drawImage(this, 0, 0, w0, h0);
-                    canvas.toBlob(function(blob){
-                        element.src=URL.createObjectURL(blob)
-                    })
-                } else {
-                    this.parentNode.style.background='url('
-                     +this.src+') center / cover';
-                }
-            }
-            element.parentNode.onclick = function()
+            element.onclick = function()
             {
                 var inputFile = document.createElement('input');
-                inputFile.type='file';
-                inputFile.accept='image/*';
-                inputFile.onchange = function() {
+                inputFile.setAttribute('type', 'file');
+                inputFile.onchange = function()
+                {
+                    if (inputFile.files && inputFile.files[0]) {	
+        
+                        var reader = new FileReader();
 
-                    var file=this.files[0];
-
-                    if (!file)  return;
-                    element.src=URL.createObjectURL(file);
+                        reader.onload = function (e){
+                            element.src = e.target.result;
                  //           element.style = 'width: 100%; height: 100%; margin-left: 10px;'
+                        
+                        }
+
+                        reader.readAsDataURL(inputFile.files[0]);
+                    }	
                 }
         
                 inputFile.click();
@@ -874,32 +901,34 @@
             DragAndDrop_img(element,type);// активировать DragAndDrop у картинки 
         }
   
-        var imgs = $('#imgs img').each(function(i){
-            InitImg(this, "img");
-        })
+        var imgs = document.getElementById("imgs").getElementsByTagName('img');
+
+        for (let img of imgs) {
+            InitImg(img,"img");
+        }
         
         var backgrounds = document.getElementById("backgrounds").getElementsByTagName('img');
 
         for (let img of backgrounds) {InitImg(img,"background");}
            
-        document.getElementById("add_vertical").onclick = function()
-        {
-            if (editor.selection){editor.selection.cell.add_vertical(true/*сверху*/,true/*анимировать*/);
-            }else
-            {
+        //document.getElementById("add_vertical").onclick = function()
+        //{
+          //  if (editor.selection){editor.selection.cell.add_vertical(true/*сверху*/,true/*анимировать*/);
+          //  }else
+           /* {
                 alert("Ячейка не выбрана!");	
             }
-        }
+        }*/
        
-        document.getElementById("add_horizontal").onclick = function()
-        {
-            if (editor.selection){editor.selection.cell.add_horizontal(true/*слева*/,true/*анимировать*/);
-            }else
-            {
-                alert("Ячейка не выбрана!");	
-            }
+        //document.getElementById("add_horizontal").onclick = function()
+        //{
+        //    if (editor.selection){editor.selection.cell.add_horizontal(true/*слева*/,true/*анимировать*/);
+        //    }else
+        //    {
+        //        alert("Ячейка не выбрана!");	
+        //    }
             
-        }
+        //}
 
         $('body').on('click','.btt-template-1', function(){
             editor.open_template("W3sicDEiOnsieCI6MC41LCJ5IjowLjY2NjY2NjY2NjY2NjY2NjZ9LCJwMiI6eyJ4IjoxLCJ5IjoxfX0seyJwMSI6eyJ4IjowLCJ5IjowLjY2NjY2NjY2NjY2NjY2NjZ9LCJwMiI6eyJ4IjowLjUsInkiOjF9fSx7InAxIjp7IngiOjAsInkiOjAuMzMzMzMzMzMzMzMzMzMzM30sInAyIjp7IngiOjAuMzMzMzMzMzMzMzMzMzMzMywieSI6MC42NjY2NjY2NjY2NjY2NjY2fX0seyJwMSI6eyJ4IjowLCJ5IjowfSwicDIiOnsieCI6MC41LCJ5IjowLjMzMzMzMzMzMzMzMzMzMzN9fSx7InAxIjp7IngiOjAuNSwieSI6MH0sInAyIjp7IngiOjEsInkiOjAuMzMzMzMzMzMzMzMzMzMzM319LHsicDEiOnsieCI6MC42NjY2NjY2NjY2NjY2NjY2LCJ5IjowLjMzMzMzMzMzMzMzMzMzMzN9LCJwMiI6eyJ4IjoxLCJ5IjowLjY2NjY2NjY2NjY2NjY2NjZ9fSx7InAxIjp7IngiOjAuMzMzMzMzMzMzMzMzMzMzMywieSI6MC4zMzMzMzMzMzMzMzMzMzMzfSwicDIiOnsieCI6MC42NjY2NjY2NjY2NjY2NjY2LCJ5IjowLjY2NjY2NjY2NjY2NjY2NjZ9fV0=");
@@ -913,11 +942,11 @@
             return false
         })
         
-        document.getElementById("save_template").onclick = function()
+        /*document.getElementById("save_template").onclick = function()
         {
             var str = editor.save_template();	//сохранить шаблон
             console.log("editor.open_template('"+str+"');");	
-        }
+        }*/
 
         document.getElementById("clear").onclick = function()
         {
@@ -1022,7 +1051,7 @@
             }
         }	
             
-        document.getElementById("invert_x").onclick = function()
+       /* document.getElementById("invert_x").onclick = function()
         {    	
             if (editor.selection){
             
@@ -1040,10 +1069,10 @@
             {
                 alert("Ячейка не выбрана!");	
             }
-        }	  
+        }	  */
          
          
-        document.getElementById("invert_y").onclick = function()
+        /*document.getElementById("invert_y").onclick = function()
         {    	
             if (editor.selection){
             
@@ -1061,21 +1090,21 @@
             {
                 alert("Ячейка не выбрана!");	
             }
-        }		
+        }		*/
 
         document.getElementById("delete_background").onclick = function()
         { 
             editor.Background = undefined;
         }  
         
-        document.getElementById("Undo").onclick = function()
+        /*document.getElementById("Undo").onclick = function()
         { 
          
-        }
+        }*/
         
         
         
-        document.getElementById("loadPhotos_1").onclick = function()
+        /*document.getElementById("loadPhotos_1").onclick = function()
         {
             var imgs = document.getElementById("imgs").getElementsByTagName('img');
             var srcs = [];
@@ -1083,69 +1112,69 @@
             for (let img of imgs) {
                 if (img.src !== "")
                 srcs.push(img.src);
-            }
+            }*/
             
             
             
-            editor.loadPhotos(srcs,false/*рандомно*/,false/*сравнивать соотношения размера*/,false/*развернуть фото по размеру*/);
+            //editor.loadPhotos(srcs,false/*рандомно*/,false/*сравнивать соотношения размера*/,false/*развернуть фото по размеру*/);
             
-        }
+        //}
         
-        document.getElementById("loadPhotos_2").onclick = function()
-        {
-            var imgs = document.getElementById("imgs").getElementsByTagName('img');
-            var srcs = [];
+        //document.getElementById("loadPhotos_2").onclick = function()
+        //{
+        //    var imgs = document.getElementById("imgs").getElementsByTagName('img');
+        //    var srcs = [];
         
-            for (let img of imgs) {
-                if (img.src !== "")
-                srcs.push(img.src);
-            }
+        //    for (let img of imgs) {
+        //        if (img.src !== "")
+        //        srcs.push(img.src);
+        //    }
             
             
             
-            editor.loadPhotos(srcs,true/*рандомно*/,false/*сравнивать соотношения размера*/,false/*развернуть фото по размеру*/);
+        //    editor.loadPhotos(srcs,true/*рандомно*/,false/*сравнивать соотношения размера*/,false/*развернуть фото по размеру*/);
             
-        }
+        //}
         
         
-        document.getElementById("loadPhotos_3").onclick = function()
-        {
-            var imgs = document.getElementById("imgs").getElementsByTagName('img');
-            var srcs = [];
+        //document.getElementById("loadPhotos_3").onclick = function()
+        //{
+        //    var imgs = document.getElementById("imgs").getElementsByTagName('img');
+        //    var srcs = [];
         
-            for (let img of imgs) {
-                if (img.src !== "")
-                srcs.push(img.src);
-            }
+       //     for (let img of imgs) {
+       //         if (img.src !== "")
+       //         srcs.push(img.src);
+       //     }
             
             
             
-            editor.loadPhotos(srcs,false/*рандомно*/,true/*сравнивать соотношения размера*/,false/*развернуть фото по размеру*/);
+       //     editor.loadPhotos(srcs,false/*рандомно*/,true/*сравнивать соотношения размера*/,false/*развернуть фото по размеру*/);
             
-        }
+        //}
         
-        document.getElementById("loadPhotos_4").onclick = function()
-        {
-            var imgs = document.getElementById("imgs").getElementsByTagName('img');
-            var srcs = [];
+        //document.getElementById("loadPhotos_4").onclick = function()
+        //{
+        //    var imgs = document.getElementById("imgs").getElementsByTagName('img');
+        //    var srcs = [];
         
-            for (let img of imgs) {
-                if (img.src !== "")
-                srcs.push(img.src);
-            }
+        //    for (let img of imgs) {
+        //        if (img.src !== "")
+        //        srcs.push(img.src);
+        //    }
             
             
             
-            editor.loadPhotos(srcs,false/*рандомно*/,false/*сравнивать соотношения размера*/,true/*развернуть фото по размеру*/);
+        //    editor.loadPhotos(srcs,false/*рандомно*/,false/*сравнивать соотношения размера*/,true/*развернуть фото по размеру*/);
             
-        }
+        //}
         
-        document.getElementById("out").onclick = function()
-        {//важно! изображения которые используются в редакторе не должны нарушать права 
-            var img = document.createElement("img");
-            img.src = editor.out(/*width,height можно указать желаемый размер*/);
-            document.body.appendChild(img);
-        }
+ //       document.getElementById("out").onclick = function()
+ //       {//важно! изображения которые используются в редакторе не должны нарушать права 
+ //           var img = document.createElement("img");
+ //           img.src = editor.out(/*width,height можно указать желаемый размер*/);
+ //           document.body.appendChild(img);
+ //       }
         
         
         

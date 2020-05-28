@@ -1685,7 +1685,7 @@ PhotoEditor.prototype.drawGrid = function()
 		
 		this.ctx.clip();
 		
-		this.ctx.fillStyle = '#6a9586';
+		this.ctx.fillStyle = '#ffedde';
 		this.ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
 		
 		
