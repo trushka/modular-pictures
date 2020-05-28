@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VIAR</title>
+    <meta name="cmsmagazine" content="5a7189a28fb3dc68238dbdb44c9ea99c" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap&subset=cyrillic" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery-photo.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="popup-login-registration popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Вход / Регистрация</h3>
+                <ul>
+                    <li><a class="login" href="javascript:void(0)"><span>Войти</span></a></li>
+                    <li><a class="registration" href="javascript:void(0)"><span>зарегистрироваться</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="popup-registration popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Регистрация</h3>
+                <form action="">
+                    <div class="input">
+                        <label>Электронная почта</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Пароль</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Повторить пароль</label>
+                        <input type="text">
+                    </div>
+                    <div class="invited">
+                        <p class="invited_js">Меня пригласил друг</p>
+                        <div class="input">
+                            <label>Введите код приглашения</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <button><span>ПОдтвердить</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-login popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Вход в личный кабинет</h3>
+                <form action="">
+                    <div class="input">
+                        <label>Электронная почта</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Пароль</label>
+                        <input type="text">
+                    </div>
+                    <p class="forgotYour_js">Забыли пароль?</p>
+                    <button><span>Войти</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-forgotYour popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Восстановление пароля</h3>
+                <form action="">
+                    <div class="input">
+                        <label>Электронная почта</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Новый пароль</label>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <label>Повторите новый пароль</label>
+                        <input type="text">
+                    </div>
+                    <button><span>Подтвердить</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-dates popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Введите две даты</h3>
+                <p>Напишите даты Ваших друзей, родственников, праздников и за 10 дней получите предложение со скидкой на один из наших товаров. </p>
+                <strong><i>*</i> Условия акции: - Акция вступает в силу через 2 месяца, после полученной информации. </strong>
+                <form action="">
+                    <div class="date">
+                        <div class="input">
+                            <input type="text" placeholder="Выберите первую дату">
+                            <input type="text" placeholder="Напиишите торжество">
+                        </div>
+                        <div class="input">
+                            <input type="text" placeholder="Выберите вторую дату">
+                            <input type="text" placeholder="Напишите торжество">
+                        </div>
+                    </div>
+                    <button><span>Принять</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-lnvite-friend popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Пригласи друга</h3>
+                <p>Сгенерируйте код купона для приглашения и Вам зачислятся денежные бонусы</p>
+                <form action="">
+                    <div class="date">
+                        <input type="text" placeholder="">
+                    </div>
+                    <button><span>Копировать код</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-print-screen popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Пришлите PrintScreen</h3>
+                <p>Публикация на Facebook о нашем сайте дает <strong>скидку 2%</strong></p>
+                <form action="">
+                    <div class="file">
+                        <input type="file">
+                    </div>
+                    <button><span>загрузить</span></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup-photo popup">
+            <span class="close-popup"></span>
+            <div class="popup-content">
+                <span class="close-content"><i class="icon-icon4"></i></span>
+                <h3>Пришлите качественное фото с нашей картиной</h3>
+                <p>После отправки фото с Вами свяжется <strong>Наш менеджер</strong></p>
+                <strong><i>*</i>Условия акции: Акция действует один раз в год, после оформления заказа.</strong>
+                <form action="">
+                    <div class="file">
+                        <input type="file">
+                    </div>
+                    <button><span>загрузить</span></button>
+                </form>
+            </div>
+        </div>
+
+        <header>
+            <div class="header-content clearfix">
+                <div class="menu-logo">
+                    <a href="index.html" class="logo"><img src="img/logo.png" alt=""></a>
+                    <span class="open-menu">
+                <span></span>
+                    </span>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">Услуги</a>
+                                <ul>
+                                    <li><a href="canvas.html">Фото картины и композиции</a></li>
+                                    <li><a href="collage.html">Фото Коллажи</a></li>
+                                    <li><a href="modular-pictures.html">Модульные картины</a></li>
+                                    <li><a href="gallery.html">Галерея картин</a></li>
+                                    <li><a href="graphic-portrait.html">Графический портрет</a></li>
+                                    <li><a href="stylization-paintings.html">Стилизация</a></li>
+                                    <li><a href="oil-portrait.html">Картины маслом</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="gallery.html">Галерея</a>
+                                <ul>
+                                    <li><a href="gallery-modular.html">Модульные картины</a></li>
+                                    <li><a href="gallery-photo.html">Фото картины</a></li>
+                                    <li><a href="gallery-reproductions.html">Репродукции</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="about.html">О ViarCanvas</a></li>
+                            <li><a href="gift-card.html">Подарочная карта</a></li>
+                            <li><a href="blog.html">Идеи</a></li>
+                        </ul>
+                    </nav>
+                    <a href="stocks.html" class="discount">
+                        <img src="img/discount-img.png" alt="">
+                        <span><i>%</i></span>
+                    </a>
+                </div>
+                <div class="office-basket-transfer">
+                    <a href="personal-area.html" class="office"><i class="icon-icon31"></i><strong>Личный кабинет</strong></a>
+                    <!-- personal-area.html -->
+                    <a href="basket.html" class="basket"><i class="icon-icon11"></i><strong>Корзина</strong><span>5</span></a>
+                    <ul class="transfer">
+                        <li>
+                            <a href="javascript:void(0)"><img src="img/transfer-img1.png" alt=""> Ru</a>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="img/transfer-img2.png" alt=""> En</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="img/transfer-img3.png" alt=""> Lv</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="img/transfer-img4.png" alt=""> Ee</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="img/transfer-img5.png" alt=""> Lt</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="bread-crumbs">
+            <i class="icon-icon3"></i>
+            <ul>
+                <li><a href="index.html">Главная </a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><span>Фотокартины</span></li>
+            </ul>
+        </div>
+
+        <section class="gallery-photo-banner">
+            <div class="gallery-photo-slider">
+                <div>
+                    <div class="reproductions-slider-item clearfix">
+                        <div class="text">
+                            <div class="title">
+                                <h2>ФОто картины</h2>
+                            </div>
+                            <p>Подзаголовок с коротким описанием lorem ipsum dolor siamet</p>
+                            <a href="javascript:void(0)"><span>ПОдробнее</span></a>
+                        </div>
+                        <div class="img">
+                            <img src="img/slider-item-img2.png" alt="">
+                        </div>
+                        <a class="modile" href="javascript:void(0)"><span>ПОдробнее</span></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="reproductions-slider-item clearfix">
+                        <div class="text">
+                            <div class="title">
+                                <h2>ФОто картины</h2>
+                            </div>
+                            <p>Подзаголовок с коротким описанием lorem ipsum dolor siamet</p>
+                            <a href="javascript:void(0)"><span>ПОдробнее</span></a>
+                        </div>
+                        <div class="img">
+                            <img src="img/slider-item-img2.png" alt="">
+                        </div>
+                        <a class="modile" href="javascript:void(0)"><span>ПОдробнее</span></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="reproductions-slider-item clearfix">
+                        <div class="text">
+                            <div class="title">
+                                <h2>ФОто картины</h2>
+                            </div>
+                            <p>Подзаголовок с коротким описанием lorem ipsum dolor siamet</p>
+                            <a href="javascript:void(0)"><span>ПОдробнее</span></a>
+                        </div>
+                        <div class="img">
+                            <img src="img/slider-item-img2.png" alt="">
+                        </div>
+                        <a class="modile" href="javascript:void(0)"><span>ПОдробнее</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="genres">
+            <div class="title">
+                <h3>Фото картины</h3>
+            </div>
+            <div class="foto-slider">
+                <div class="foto-item">
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img1.png" alt="" class="foto-item1">
+                        <img src="img/foto-img2.png" alt="" class="foto-item2">
+                        <h3>Абстракции</h3>
+                    </div>
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img1.png" alt="" class="foto-item1">
+                        <img src="img/foto-img2.png" alt="" class="foto-item2">
+                        <h3>Тест категория</h3>
+                    </div>
+                </div>
+                <div class="foto-item">
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img3.png" alt="" class="foto-item3">
+                        <img src="img/foto-img4.png" alt="" class="foto-item4">
+                        <h3>Природа</h3>
+                    </div>
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img3.png" alt="" class="foto-item3">
+                        <img src="img/foto-img4.png" alt="" class="foto-item4">
+                        <h3>Категория 7</h3>
+                    </div>
+                </div>
+                <div class="foto-item">
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <h3>Цветы</h3>
+                        <img src="img/foto-img5.png" alt="" class="foto-item5">
+                        <img src="img/foto-img6.png" alt="" class="foto-item6">
+                    </div>
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <h3>Категория 8</h3>
+                        <img src="img/foto-img5.png" alt="" class="foto-item5">
+                        <img src="img/foto-img6.png" alt="" class="foto-item6">
+                    </div>
+                </div>
+                <div class="foto-item">
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img7.png" alt="" class="foto-item7">
+                        <img src="img/foto-img8.png" alt="" class="foto-item8">
+                        <h3>Стиль</h3>
+                    </div>
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img7.png" alt="" class="foto-item7">
+                        <img src="img/foto-img8.png" alt="" class="foto-item8">
+                        <h3>Категория 9</h3>
+                    </div>
+                </div>
+                <div class="foto-item">
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img9.png" alt="" class="foto-item9">
+                        <img src="img/foto-img10.png" alt="" class="foto-item10">
+                        <h3>Другое</h3>
+                    </div>
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img9.png" alt="" class="foto-item9">
+                        <img src="img/foto-img10.png" alt="" class="foto-item10">
+                        <h3>Категория 10</h3>
+                    </div>
+                </div>
+                <div class="foto-item">
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img1.png" alt="" class="foto-item1">
+                        <img src="img/foto-img2.png" alt="" class="foto-item2">
+                        <h3>Художники</h3>
+                    </div>
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img1.png" alt="" class="foto-item1">
+                        <img src="img/foto-img2.png" alt="" class="foto-item2">
+                        <h3>Тест категория</h3>
+                    </div>
+                </div>
+                <div class="foto-item">
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img3.png" alt="" class="foto-item3">
+                        <img src="img/foto-img4.png" alt="" class="foto-item4">
+                        <h3>Стили</h3>
+                    </div>
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img3.png" alt="" class="foto-item3">
+                        <img src="img/foto-img4.png" alt="" class="foto-item4">
+                        <h3>Категория 7</h3>
+                    </div>
+                </div>
+                <div class="foto-item">
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <h3>Жанры</h3>
+                        <img src="img/foto-img5.png" alt="" class="foto-item5">
+                        <img src="img/foto-img6.png" alt="" class="foto-item6">
+                    </div>
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <h3>Категория 8</h3>
+                        <img src="img/foto-img5.png" alt="" class="foto-item5">
+                        <img src="img/foto-img6.png" alt="" class="foto-item6">
+                    </div>
+                </div>
+                <div class="foto-item">
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img7.png" alt="" class="foto-item7">
+                        <img src="img/foto-img8.png" alt="" class="foto-item8">
+                        <h3>Современные художники</h3>
+                    </div>
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img7.png" alt="" class="foto-item7">
+                        <img src="img/foto-img8.png" alt="" class="foto-item8">
+                        <h3>Категория 9</h3>
+                    </div>
+                </div>
+                <div class="foto-item">
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img9.png" alt="" class="foto-item9">
+                        <img src="img/foto-img10.png" alt="" class="foto-item10">
+                        <h3>Художники топ 30</h3>
+                    </div>
+                    <div style="background: url('img/foto-slider-bg.png') no-repeat 50% 50%; background-size: cover;">
+                        <a href="gallery-photo-catalog.html"></a>
+                        <img src="img/foto-img9.png" alt="" class="foto-item9">
+                        <img src="img/foto-img10.png" alt="" class="foto-item10">
+                        <h3>Категория 10</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-photo-catalog">
+            <div class="gallery-photo-catalog-content">
+                <div class="container">
+                    <div class="popular-content">
+                        <div class="title">
+                            <h3>Популярные Фото КАРТИНЫ</h3>
+                            <ul>
+                                <li><i class="icon-icon6"></i></li>
+                                <li><i class="icon-icon6"></i></li>
+                                <li><i class="icon-icon6"></i></li>
+                                <li><i class="icon-icon6"></i></li>
+                                <li><i class="icon-icon6"></i></li>
+                            </ul>
+                        </div>
+                        <div class="popular-slider">
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-content">
+                        <div class="title">
+                            <h3>рекомендуемые фото картины</h3>
+                            <ul>
+                                <li><i class="icon-icon6"></i></li>
+                                <li><i class="icon-icon6"></i></li>
+                                <li><i class="icon-icon6"></i></li>
+                                <li><i class="icon-icon6"></i></li>
+                                <li><i class="icon-icon6"></i></li>
+                            </ul>
+                        </div>
+                        <div class="popular-slider">
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-content">
+                        <div class="title">
+                            <h3>Картины всех разделов</h3>
+                            <ul>
+                                <li><i class="icon-icon6"></i></li>
+                                <li><i class="icon-icon6"></i></li>
+                                <li><i class="icon-icon6"></i></li>
+                                <li><i class="icon-icon6"></i></li>
+                                <li><i class="icon-icon6"></i></li>
+                            </ul>
+                        </div>
+                        <div class="popular-slider">
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                            <div class="popular-item">
+                                <div>
+                                    <div class="img">
+                                        <img src="img/popular-slider-img2.png" alt="">
+                                    </div>
+                                    <h5>Фотокартина - Венеция гондолы, Art. sity_0099</h5>
+                                    <i>Размер: <span> 50х60</span></i>
+                                    <p>Цена: <span> От 100 €</span></p>
+                                    <a href="gallery-photo-one.html"><span>ЗАКАЗАТЬ <i></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content clearfix">
+                <a class="logo" href="index.html"><img src="img/footer-logo.png" alt=""></a>
+                <nav>
+                    <ul>
+                        <li><a href="gallery-photo-catalog.html">Фото картины на холсте</a></li>
+                        <li><a href="collage.html">Коллажи</a></li>
+                        <li><a href="modular-pictures.html">Модульные картины</a></li>
+                        <li><a href="gallery.html">Галерея</a></li>
+                        <li><a href="graphic-portrait.html">Электронная живопись</a></li>
+                        <li><a href="about.html">О VIARART</a></li>
+                        <li><a href="gift-card.html">Подарочная карта</a></li>
+                        <li><a href="blog.html">Идеи</a></li>
+                        <li><a href="stocks.html">Скидки</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="contacts.html">Реквизиты</a></li>
+                        <li><a href="terms-sale.html">Условия продажи</a></li>
+                        <li><a href="shipping-payment.html">Доставка и оплата</a></li>
+                        <li><a href="partnership.html">Партнёрство</a></li>
+                        <li><a href="faq.html">Вопросы и ответы</a></li>
+                    </ul>
+                </nav>
+                <div class="tel-sosial clearfix">
+                    <a href="stocks.html" class="discount">
+                        <img src="img/discount-img.png" alt="">
+                        <span><i>%</i></span>
+                    </a>
+                    <div class="tel">
+                        <!-- <p>Звонки по России бесплатно</p> -->
+                        <a href="tel:88007789898">+371 25444744</a>
+                    </div>
+                    <div class="facebook">
+                        <a href="javascript:void(0)"></a>
+                        <img src="img/facebook-banner.png" alt="">
+                        <p>
+                            опубликуйте пост и получите
+                            <span>Скидку</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="js/jquery.matchHeight.min.js"></script>
+    <script src="js/jcf.min.js"></script>
+    <script src="js/jcf.checkbox.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/script.min.js"></script>
+    <script src="js/gallery-photo.min.js"></script>
+</body>
+
+</html>
