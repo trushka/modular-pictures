@@ -17,9 +17,9 @@ var modular={
 
 	tooSmall: 'Выбирите картинку не меньше $*$!',
 	notSupport: 'Не поддерживаемый формат изображения!'
-}
+};
 
-//(function(){
+(function(){
 	//var minSize=20;
 	var dpcm = modular.dpcm || modular.dpi/2.54;
 	var minImgSize = Math.round(modular.min*dpcm);
@@ -84,9 +84,12 @@ var modular={
 			var bl=tpl.bl[0]?tpl.bl:[tpl.bl];
 
 			if (bl.find(function(data){
-				$('<g class="module" style="--x: '+data.x*100+'%; --y: '+ data.y*100+'%;'
-					+' --w: '+ data.w*100+'%; --h: '+ data.h*100+'%"/>')
-				.appendTo(svg).append('<rect/>');
+				var x=+(data.x*100).toFixed(2)+'%',
+					y=+(data.y*100).toFixed(2)+'%',
+					w=+(data.w*100).toFixed(2)+'%',
+					h=+(data.h*100).toFixed(2)+'%';
+				$('<g class="module" style="--x: '+x+'; --y: '+y+'; --w: '+w+'; --h: '+h+'"/>')
+				.appendTo(svg).append('<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'"/>');
 
 				return !('s' in data) || +data.r
 
@@ -249,7 +252,7 @@ var modular={
 				y=pos0.y - bBox.y,
 				w=pos0.width,
 				h=pos0.height;
-			var css={};
+			var css={}, attr={};
 
 			dx=Math.max(dx, move.l?-x:-w+minSize);
 			dy=Math.max(dy, move.t?-y:-h+minSize);
@@ -257,12 +260,13 @@ var modular={
 			dx=Math.min(dx, move.w<0?w-minSize:bBox.width-x-w);
 			dy=Math.min(dy, move.h<0?h-minSize:bBox.height-y-h);
 
-			if (move.l) css['--x']=(x+dx)/bBox.width*100+'%';
-			if (move.t) css['--y']=(y+dy)/bBox.height*100+'%';
-			css['--w']=(w+dx*move.w)/bBox.width*100+'%';
-			css['--h']=(h+dy*move.h)/bBox.height*100+'%';
+			if (move.l) css['--x']=attr['x']=+((x+dx)/bBox.width*100).toFixed(2)+'%';
+			if (move.t) css['--y']=attr['y']=+((y+dy)/bBox.height*100).toFixed(2)+'%';
+			css['--w']=attr['width']=+((w+dx*move.w)/bBox.width*100).toFixed(2)+'%';
+			css['--h']=attr['height']=+((h+dy*move.h)/bBox.height*100).toFixed(2)+'%';
 
 			$(el).css(css);
+			$('>rect', el).attr(attr);
 			//return false
 		}
 
@@ -426,4 +430,23 @@ var modular={
 	})
 
 	$(window).on('resize', resizeCanvas)
-//})()
+
+	window.saveModular=function(){
+		var inp=$('input.imageFile:hidden');
+		var svg=svg0.clone().attr({
+			width: h2w.w+'cm', height: h2w.h+'cm',
+			xmlns: 'http://www.w3.org/2000/svg',
+			'xmlns:xlink': 'http://www.w3.org/1999/xlink'
+		});
+
+		$('image', svg).attr({
+			href: inp[0].files[0].name,
+			'xlink:href': inp[0].files[0].name
+		});
+
+		$('.module>rect', svg).attr({fill: 'url(#image)', stroke: 'none'}).appendTo(svg);
+		$('g, rect:first-child', svg).remove();
+
+		return {svg: svg[0].outerHTML, input: inp}
+	}
+})()
