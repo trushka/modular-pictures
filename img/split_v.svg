@@ -1,0 +1,8 @@
+<svg version="1.1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+ <g fill="none" stroke="#ff9118" stroke-linejoin="round" stroke-linecap="round" stroke-width="15">
+  <rect x="30" y="30" width="540" height="230"/>
+  <rect x="30" y="340" width="540" height="230"/>
+  <path d="m15 300h565" stroke-dasharray="20,30" stroke-dashoffset="52.8" stroke-width="12"/>
+  <path d="m300 260v-130m60 50-60-50-60 50m60 160v130m60-50-60 50-60-50"/>
+ </g>
+</svg>
