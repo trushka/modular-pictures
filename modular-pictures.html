@@ -752,11 +752,12 @@
 
 
                                             </td><td class="controls">
-                                                <button>⬚</button>
-                                                <button>↶</button>
-                                                <button>↷</button>
-                                                <button>⮿</button>
-                                                <button style="text-indent: 1px;">🗑</button>
+                                                <button title="Разделить блок вертикально" class="split_v" style="background-image: url(img/split_v.svg)"></button>
+                                                <button title="Разделить блок горизонтально" class="split_h" style="background-image: url(img/split_v.svg); transform: rotate(90deg)"></button>
+                                                <button title="Удалить блок" class="delete" style="background-image: url(img/collage7.png)"></button>
+                                                <!--button title="Очистить всё" class="clear" style="background-image: url(img/collage2.png)"></button>
+                                                <button title="Отменить последнее действие" class="" style="background-image: url(img/undo.svg)"></button>
+                                                <button title="Повторить последнее действие" class="" style="background-image: url(img/undo.svg); transform: scaleX(-1);"></button-->
                                             </td>
                                         </tr>
                                     </table>
@@ -820,6 +821,18 @@
                                                     </p>
                                                     <div class="range_box">
                                                         <input type="range" class="zoomRange range-input" id="range-h" min="0" value="30" max="300" step=".1" />
+                                                        <div class="changeSm">
+                                                            <div><span>0</span> <i>см</i></div>
+                                                            <div><span>300</span> <i>см</i></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="size-item space">
+                                                    <p>Расстояние между блоками:
+                                                        <input type="number" step=".1"> см
+                                                    </p>
+                                                    <div class="range_box">
+                                                        <input type="range" class="zoomRange range-input" id="range-s" min="1" value="2" max="30" step=".1" />
                                                         <div class="changeSm">
                                                             <div><span>0</span> <i>см</i></div>
                                                             <div><span>300</span> <i>см</i></div>

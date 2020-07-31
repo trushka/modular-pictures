@@ -12,18 +12,26 @@ var modular={
 	min: 40,
 	max: 360,
 	minSize: 20,
+	minSpace:1,
+	maxSpace:30,
+	space:2,
 	dpi: 30, //100,
 	deltaH: 40, // (viewport height) - (max canvas height)
 
-	tooSmall: 'Выбирите картинку не меньше $*$!',
-	notSupport: 'Не поддерживаемый формат изображения!'
 };
 
-(function(){
-	//var minSize=20;
+var lang={
+	tooSmall: 'Выбирите картинку не меньше $*$!',
+	notSupport: 'Не поддерживаемый формат изображения!',
+	notSelected: 'Выберите блок для редактирования!',
+	tooSmallH: 'Недостаточная высота блока для разделения',
+	tooSmallW: 'Недостаточная ширина блока для разделения'
+};
+
+//(function(){
 	var dpcm = modular.dpcm || modular.dpi/2.54;
 	var minImgSize = Math.round(modular.min*dpcm);
-	var tooSmall = modular.tooSmall.replace(/\$/g, minImgSize);
+	var tooSmall = lang.tooSmall.replace(/\$/g, minImgSize);
 
 	function SVG(tag){
 		return document.createElementNS('http://www.w3.org/2000/svg', tag)
@@ -65,6 +73,7 @@ var modular={
 	var padding=.01;
 
 	function resizeCanvas(){
+		if (!$('g', svg0).html()) return;
 		svg0[0].setAttribute('viewBox', '0,0,'+h2w.w+','+h2w.h);
 		$('pattern, image', svg0).attr({width: h2w.w, height: h2w.h});
 		$('>g', svg0)[0].innerHTML+=''; // huck for svg redraw
@@ -88,8 +97,8 @@ var modular={
 					y=+(data.y*100).toFixed(2)+'%',
 					w=+(data.w*100).toFixed(2)+'%',
 					h=+(data.h*100).toFixed(2)+'%';
-				$('<g class="module" style="--x: '+x+'; --y: '+y+'; --w: '+w+'; --h: '+h+'"/>')
-				.appendTo(svg).append('<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'"/>');
+				$('<g class="module" style="--x: '+x+'; --y: '+y+'; --w: '+w+'; --h: '+h+'"><rect /></g>')
+				.appendTo(svg);
 
 				return !('s' in data) || +data.r
 
@@ -118,14 +127,14 @@ var modular={
 
 		if (!file)  return;
 		if (!file.type.match(/image.*/))  {
-			alert(modular.notSupport);
+			alert(lang.notSupport);
 			return;
 		}
 
 		var img0=new Image();
 		img0.onload=function(){
 			if (!this.width) {
-				alert(modular.notSupport);
+				alert(lang.notSupport);
 				return;
 			}
 			var w=this.width,
@@ -166,7 +175,7 @@ var modular={
 			else if (hw>modular.minLandscape) setTemplates('Landscape');
 			else setTemplates('Panorama');
 		}
-		img0.onerror=function(){alert(modular.notSupport)};
+		img0.onerror=function(){alert(lang.notSupport)};
 		img0.src=URL.createObjectURL(file);
 		$(this).data('img', img0)
 
@@ -196,10 +205,12 @@ var modular={
 
 	mainContainer.on('mouseenter touchstart mousedown', 'g.module', function(e){
 		if (e.type!='mousedown' && !$(this).is('.blocked g, :last-child')) {
-			$('>g', svg0).append(this);
-			return;
+			$('>g', svg0).append(this);			return;
 		}
 		if (e.type=='mouseenter') return;
+
+		$('.selected', svg0).removeClass('selected');
+		$(this).addClass('selected');
 		//console.log (e)
 		var el=this;
 		var touch = e.type=='touchstart' && e.originalEvent.changedTouches[0];
@@ -266,7 +277,7 @@ var modular={
 			css['--h']=attr['height']=+((h+dy*move.h)/bBox.height*100).toFixed(2)+'%';
 
 			$(el).css(css);
-			$('>rect', el).attr(attr);
+			//$('>rect', el).attr(attr);
 			//return false
 		}
 
@@ -310,6 +321,11 @@ var modular={
 	});
 	var sizeInp=wInp.add(hInp).trigger('input');
 	resized=false;
+
+	var sInp=$('.modular-size .space input').on('input change', function(e){
+		sInp.val(h2w.space=this.value).setBg();
+	}).val(h2w.space=modular.space).setBg()
+	.setMinMax(modular.minSpace, modular.maxSpace);
 
 	$(window).on('touchend touchcancel mouseup blur', function(){
 		if (resized) resizeCanvas();
@@ -428,8 +444,44 @@ var modular={
 			'--fw': (css.match(/\d*\.?\d+em/)||0)[0]
 		})
 	})
+	$('.modular .controls button').addClass('disabled');
 
 	$(window).on('resize', resizeCanvas)
+
+	function checkActive() {
+		var active=$('.selected, .module:only-child', svg0)
+		if (!active[0]) alert(lang.notSelected)
+		else return active
+	}
+
+	$('.split_v').click(function(){
+		var selected=checkActive();
+		if (!selected) return;
+		var bBox=$('>rect', selected)[0].getBBox(),
+			h=(bBox.height - h2w.space)/2,
+			y=bBox.y;
+		if (h<modular.minSize) return alert(lang.tooSmallH);
+		selected.css('--h', (h*100/h2w.h).toFixed(2)+'%')
+		.clone().css('--y', ((y+h+h2w.space)*100/h2w.h).toFixed(2)+'%')
+		.removeClass('selected').appendTo($('>g', svg0));
+	})
+	$('.split_h').click(function(){
+		var selected=checkActive();
+		if (!selected) return;
+		var bBox=$('>rect', selected)[0].getBBox(),
+			w=(bBox.width - h2w.space)/2,
+			x=bBox.x;
+		if (w<modular.minSize) return alert(lang.tooSmallW);
+		selected.css('--w', (w*100/h2w.w).toFixed(2)+'%')
+		.clone().css('--x', ((x+w+h2w.space)*100/h2w.w).toFixed(2)+'%')
+		.removeClass('selected').appendTo($('>g', svg0));
+	})
+	$('.controls .delete').click(function(){
+		var selected=checkActive();
+		if (!selected) return;
+		if (selected.is(':only-child')) return;
+		selected.remove();
+	})
 
 	window.saveModular=function(){
 		var inp=$('input.imageFile:hidden');
@@ -444,9 +496,19 @@ var modular={
 			'xlink:href': inp[0].files[0].name
 		});
 
-		$('.module>rect', svg).attr({fill: 'url(#image)', stroke: 'none'}).appendTo(svg);
+		$('.module>rect', svg).each(function(i){
+			var $el=$('.module>rect', svg0).eq(i);
+			$(this).attr({
+				fill: 'url(#image)', stroke: 'none',
+			    width: $el.css('--w'),
+			    height: $el.css('--h'),
+			    x: $el.css('--x'),
+			    y: $el.css('--y')
+			})
+			console.log($el.closest('g')[0].style)//.css('--w'))
+		}).appendTo(svg);
 		$('g, rect:first-child', svg).remove();
 
 		return {svg: svg[0].outerHTML, input: inp}
 	}
-})()
+//})()
